@@ -10,7 +10,7 @@ gensim==4.3.1
 matplotlib==3.7.1
 matplotlib-inline==0.1.6
 matplotlib-venn==0.11.9
-
+pyinflect==0.5.1
 nltk==3.8.1
 seaborn==0.12.2
 numpy==1.22.4
