@@ -145,16 +145,11 @@ for i in range(len(ddf)):
         except:
             pass
 
-ddf
 
 
-import streamlit as st
+st.title('Генератор упражнений по английскому языку.')
 
-def main():
-    st.title('Генератор упражнений по английскому языку.')
 
-if __name__ == '__main__':
-    main()
 
 
 
