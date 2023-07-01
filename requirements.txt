@@ -14,7 +14,7 @@ matplotlib-venn==0.11.9
 nltk==3.8.1
 seaborn==0.12.2
 numpy==1.22.4
-
+sentence-splitter==1.4
 pandas==1.5.3
 pandas-datareader==0.10.0
 pandas-gbq==0.17.9
