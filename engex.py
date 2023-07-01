@@ -17,7 +17,7 @@ import contractions
 import contractions
 
 tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-fp = open("/content/Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt")
+fp = open("Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt")
 data = fp.read()
 
 splitter = SentenceSplitter(language='en')
