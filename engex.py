@@ -11,7 +11,6 @@ import nltk
 import pandas as pd
 import nltk.data
 import seaborn as sns
-import sentence-splitter
 from sentence_splitter import SentenceSplitter
 nltk.download('stopwords')
 nltk.download('punkt')
