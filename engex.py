@@ -16,6 +16,8 @@ import spacy
 import contractions
 import contractions
 
+st.title('Генератор упражнений по английскому языку.')
+
 tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 fp = open("Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt")
 data = fp.read()
@@ -74,8 +76,6 @@ def opt(row):
 df['options'] = df.apply(opt, axis=1)
 df['options'] = df.apply(lambda x: [] if x['task'] == 'missing_word' else x['options'], axis=1)
 
-df
-
 def chunk(row):
     try:
         p = []
@@ -95,11 +95,7 @@ print(['give'] + ['priv'])
 
 df['answer'] = 0
 
-df
-
 ddf = df.copy()
-
-ddf
 
 for i in range(len(ddf)):
     if ddf.loc[i, 'task'] == 'phrases':
@@ -114,8 +110,6 @@ for i in range(len(ddf)):
 for i in range(len(ddf)):
     if (ddf.loc[i, 'task'] == 'select_word' or ddf.loc[i, 'task'] == 'missing_word'):
         ddf.loc[i,'answer'] = ddf.loc[i, 'word']
-
-ddf
 
 def sentgen(row):
     if row['task'] == 'select_sent':
@@ -147,7 +141,7 @@ for i in range(len(ddf)):
 
 
 
-st.title('Генератор упражнений по английскому языку.')
+st.title('Генерация готова')
 
 
 
