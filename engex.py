@@ -139,7 +139,7 @@ def gen_ex(text):
     return 'Готово'
     
 
-#df = gen_ex(text, model)
+df = gen_ex(text)
 
 
 
