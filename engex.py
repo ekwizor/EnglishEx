@@ -18,22 +18,26 @@ import streamlit as st
 
 st.title('Генератор упражнений по английскому языку.')
 
-tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-fp = open("Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt")
-data = fp.read()
+def make_dataframe():
+    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+    fp = open("Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt")
+    data = fp.read()
+    
+    splitter = SentenceSplitter(language='en')
+    sentences = splitter.split(text=data)
+    
+    df = pd.DataFrame()
+    
+    l = []
+    for i in sentences:
+        if i == "":
+            pass
+        else:
+            l.append(i)
+    df['sentences'] = l
+    return df
 
-splitter = SentenceSplitter(language='en')
-sentences = splitter.split(text=data)
-
-df = pd.DataFrame()
-
-l = []
-for i in sentences:
-    if i == "":
-        pass
-    else:
-        l.append(i)
-df['sentences'] = l
+df = make_dataframe()
 
 def sentfix(row):
     return contractions.fix(row)
