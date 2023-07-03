@@ -26,8 +26,7 @@ if text == "":
     st.write('Input text')
 
 submit = st.button('Submit')
-if submit:
-    gen_ex(text)
+
 
 
 
@@ -152,7 +151,8 @@ df = gen_ex(text)
 
 st.subtitle('Генерация завершена.')
 
-
+if submit:
+    gen_ex(text)
 
 
 
