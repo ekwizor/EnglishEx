@@ -23,8 +23,7 @@ st.title('Генератор упражнений по английскому я
 text = st.text_area('Input your text.')
 
 submit = st.button('Submit')
-if submit:
-    gen_ex(text)
+
 
 
 def gen_ex(text):
