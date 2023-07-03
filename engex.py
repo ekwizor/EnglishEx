@@ -141,13 +141,14 @@ def gen_ex(text):
 
 df = gen_ex(text)
 
+submit = st.button('Submit')
+if submit:
+    gen_ex(text)
 
 st.subtitle('Генерация завершена.')
 
 
-submit = st.button('Submit')
-if submit:
-    gen_ex(text)
+
 
 
 
