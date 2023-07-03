@@ -148,7 +148,7 @@ def gen_ex(text, model):
 
 submit = st.button('Submit')
 if submit:
-    df = gen_ex(text)
+    gen_ex(text)
 
 
 
