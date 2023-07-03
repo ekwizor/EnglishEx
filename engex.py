@@ -137,7 +137,7 @@ def gen_ex(text, model):
             except:
                 pass
     df.dropna()
-    return df
+    return 'Готово'
     
 
 #df = gen_ex(text, model)
