@@ -62,7 +62,7 @@ def obj(row):
 
 df['word'] = df.apply(obj, axis=1)
 
-model_g = api.load('word2vec-google-news-300')
+
 
 
 
