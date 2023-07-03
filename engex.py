@@ -140,10 +140,12 @@ if submit:
         ddf.dropna()
     else:
         st.write('Input correct text')
+num = len(ddf)
 
-st.subheader('Управнения сгенерированы')
+st.subheader('Упражнения сгенерированы')
 
-number = st.number_input('Insert a number', step=1, max_value=ddf.shape[0])
+number = st.number_input('Insert a number', step=1, max_value=num)
+st.write('Max number of exercises', num)
 
 #if number:
     
