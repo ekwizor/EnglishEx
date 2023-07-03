@@ -19,7 +19,7 @@ import streamlit as st
 st.title('Генератор упражнений по английскому языку.')
 
 text = st.text_area('Input your text.')
-st.button('Submit', on_click=text)
+
 
 def gen_text():
     
@@ -47,7 +47,8 @@ def gen_text():
     df['sentences'] = df['sentences'].apply(sentfix)
     
     df.loc[:,'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split())<=7 else np.random.choice(['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
-    
+
+st.button('Submit', on_click=gen_text)
 
 nlp = en_core_web_sm.load()
 
