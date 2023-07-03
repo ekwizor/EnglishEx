@@ -18,13 +18,13 @@ import streamlit as st
 
 st.title('Генератор упражнений по английскому языку.')
 #добавляем текст
-text = st.text_area('Input your text.':red)
+text = st.text_area('Input your text.')
 submit = st.button('Submit')
 
 if submit:
     #tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     #разделим текст по предложениям
-    if (text != '') or (text > 40):
+    if (text != '') and (text > 40):
         splitter = SentenceSplitter(language='en')
         sentences = splitter.split(text=text)
                 
