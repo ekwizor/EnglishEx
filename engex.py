@@ -24,7 +24,7 @@ submit = st.button('Submit')
 if submit:
     #tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     #разделим текст по предложениям
-    if (text != '') and (text > 40):
+    if (text != '') and (len(text) > 40):
         splitter = SentenceSplitter(language='en')
         sentences = splitter.split(text=text)
                 
