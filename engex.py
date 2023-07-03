@@ -140,7 +140,7 @@ def gen_ex(text, model):
     return df
     
 
-
+df = gen_ex(text, model)
 
 
 
