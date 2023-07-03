@@ -143,7 +143,7 @@ if submit:
 
 st.subheader('Управнения сгенерированы')
 
-number = st.number_input('Insert a number', max_values=15, step=int)
+number = st.number_input('Insert a number', step=int)
 
 #if number:
     
