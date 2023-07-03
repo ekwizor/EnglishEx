@@ -24,13 +24,6 @@ text = st.text_area('Input your text.')
 
 
 
-
-
-
-
-
-
-
 def gen_ex(text):
     splitter = SentenceSplitter(language='en')
     sentences = splitter.split(text=text)
@@ -133,7 +126,7 @@ def gen_ex(text):
             except:
                 pass
     
-    for i in range(len(ddf)):
+    for i in range(len(df)):
         if df.loc[i, 'task'] == 'select_sent':
             try:
                 s = sentgen(df.loc[i])
