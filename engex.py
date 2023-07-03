@@ -20,7 +20,7 @@ st.title('Генератор упражнений по английскому я
 #добавляем текст
 text = st.text_area('Input your text.')
 submit = st.button('Submit')
-if text != '' and text > 40:
+if (text != '') and (text > 40):
     if submit:
         #tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
         #разделим текст по предложениям        
