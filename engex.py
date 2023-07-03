@@ -81,7 +81,7 @@ def sentgen(row):
             pass
 
 
-def gen_ex(text, model):
+def gen_ex(text):
     splitter = SentenceSplitter(language='en')
     sentences = splitter.split(text=text)
             
