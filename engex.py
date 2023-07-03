@@ -17,9 +17,12 @@ import streamlit as st
 
 st.title('Генератор упражнений по английскому языку.')
 
+
+text = st.text_input('Input your text.')
+
 def make_dataframe():
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-    fp = open("Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt")
+    fp = open(text)
     data = fp.read()
     
     splitter = SentenceSplitter(language='en')
