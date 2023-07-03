@@ -18,7 +18,7 @@ import streamlit as st
 
 st.title('Генератор упражнений по английскому языку.')
 
-text = st.text_input('Input your text.')
+text = st.text_area('Input your text.')
 
 
     
