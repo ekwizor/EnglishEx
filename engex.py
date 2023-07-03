@@ -17,15 +17,14 @@ import streamlit as st
 
 
 st.title('Генератор упражнений по английскому языку.')
-
+#добавляем текст
 text = st.text_area('Input your text.')
 submit = st.button('Submit')
 
 if submit:
-
     
-    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-            
+    #tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+    #разделим текст по предложениям        
     splitter = SentenceSplitter(language='en')
     sentences = splitter.split(text=text)
             
@@ -38,12 +37,11 @@ if submit:
         else:
             l.append(i)
     df['sentences'] = l
+      
+    #def sentfix(row):
+        #return contractions.fix(row)
         
-        
-    def sentfix(row):
-        return contractions.fix(row)
-        
-    df['sentences'] = df['sentences'].apply(sentfix)
+    df['sentences'] = df['sentences'].apply(lambda x: contractions.fix())
         
     df.loc[:,'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split())<=7 else np.random.choice(['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
     
