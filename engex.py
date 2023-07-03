@@ -41,7 +41,7 @@ if submit:
     #def sentfix(row):
         #return contractions.fix(row)
         
-    df['sentences'] = df['sentences'].apply(lambda x: contractions.fix(), axis=1)
+    df['sentences'] = df['sentences'].apply(lambda x: contractions.fix(x), axis=1)
         
     df.loc[:,'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split())<=7 else np.random.choice(['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
     
