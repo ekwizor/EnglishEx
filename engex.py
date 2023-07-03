@@ -91,7 +91,6 @@ def chunk(row):
     except:
         pass
 
-print(['give'] + ['priv'])
 
 df['answer'] = 0
 
