@@ -14,7 +14,7 @@ import pyinflect
 import pyinflect
 import spacy
 import contractions
-import contractions
+import streamlit as st
 
 st.title('Генератор упражнений по английскому языку.')
 
