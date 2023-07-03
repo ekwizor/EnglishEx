@@ -102,12 +102,12 @@ def gen_ex(text):
     nlp = en_core_web_sm.load()
     
     
-    df['word'] = df.apply(obj, axis=1)
+    df['word'] = df.apply(obj(), axis=1)
     
     model_g = api.load('glove-wiki-gigaword-300')
     
     
-    df['options'] = df.apply(opt, axis=1)
+    df['options'] = df.apply(opt(), axis=1)
     df['options'] = df.apply(lambda x: [] if x['task'] == 'missing_word' else x['options'], axis=1)
     
 
@@ -128,12 +128,12 @@ def gen_ex(text):
             df.loc[i,'answer'] = df.loc[i, 'word']
     
     for i in range(len(ddf)):
-        if ddf.loc[i, 'task'] == 'select_sent':
+        if df.loc[i, 'task'] == 'select_sent':
             try:
-                s = sentgen(ddf.loc[i])
-                ddf.loc[i,'word'] = list(s)[0]
-                ddf.at[i,'options'] = list(s)[1]
-                ddf.loc[i,'answer'] = list(s)[0]
+                s = sentgen(df.loc[i])
+                df.loc[i,'word'] = list(s)[0]
+                df.at[i,'options'] = list(s)[1]
+                df.loc[i,'answer'] = list(s)[0]
             except:
                 pass
     df.dropna()
