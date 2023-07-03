@@ -141,7 +141,7 @@ if submit:
     else:
         st.write('Input correct text')
 
-st.subheader('Управжнения сгенерированы')
+st.subheader('Управнения сгенерированы')
 
 number = st.number_input('Insert a number', max_values=len(ddf), step=int, value=int)
 
