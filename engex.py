@@ -143,19 +143,11 @@ if submit:
 
 st.subheader('Управнения сгенерированы')
 
-number = st.number_input('Insert a number', max_values=len(ddf), step=int, value=int)
+number = st.number_input('Insert a number', max_values=len(ddf), step=int)
 
 #if number:
     
 
-
-
-
-
-
-
-
-st.title('Генерация готова')
 
 
 
