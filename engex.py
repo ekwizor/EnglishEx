@@ -15,10 +15,14 @@ import spacy
 import contractions
 import streamlit as st
 
-st.title('Генератор упражнений по английскому языку.')
 
+    st.title('Генератор упражнений по английскому языку.')
 
-text = st.text_input('Input your text.')
+def inputtext():
+    text = st.text_input('Input your text.')
+    return text
+
+    
 
 def make_dataframe():
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
