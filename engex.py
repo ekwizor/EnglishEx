@@ -19,32 +19,35 @@ import streamlit as st
 st.title('Генератор упражнений по английскому языку.')
 
 text = st.text_area('Input your text.')
+st.button('Submit', on_click=text)
 
-
-tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-fp = open(text)
-data = fp.read()
+def gen_text()
     
-splitter = SentenceSplitter(language='en')
-sentences = splitter.split(text=data)
+    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+    fp = open(text)
+    data = fp.read()
+        
+    splitter = SentenceSplitter(language='en')
+    sentences = splitter.split(text=data)
+        
+    df = pd.DataFrame()
+        
+    l = []
+    for i in sentences:
+        if i == "":
+            pass
+        else:
+            l.append(i)
+    df['sentences'] = l
     
-df = pd.DataFrame()
     
-l = []
-for i in sentences:
-    if i == "":
-        pass
-    else:
-        l.append(i)
-df['sentences'] = l
-
-
-def sentfix(row):
-    return contractions.fix(row)
-
-df['sentences'] = df['sentences'].apply(sentfix)
-
-df.loc[:,'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split())<=7 else np.random.choice(['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
+    def sentfix(row):
+        return contractions.fix(row)
+    
+    df['sentences'] = df['sentences'].apply(sentfix)
+    
+    df.loc[:,'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split())<=7 else np.random.choice(['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
+    
 
 nlp = en_core_web_sm.load()
 
