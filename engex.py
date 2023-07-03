@@ -18,7 +18,7 @@ import streamlit as st
 
 st.title('Генератор упражнений по английскому языку.')
 #добавляем текст
-text = st.text_area('Input your text.':color['red'])
+text = st.text_area('Input your text.':red)
 submit = st.button('Submit')
 
 if submit:
