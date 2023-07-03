@@ -16,7 +16,7 @@ import contractions
 import streamlit as st
 
 
-model_g = api.load('glove-wiki-gigaword-300')
+
 
 st.title('Генератор упражнений по английскому языку.')
 #добавляем текст
@@ -104,7 +104,7 @@ def gen_ex(text, model):
     
     df['word'] = df.apply(obj, axis=1)
     
-    model_g = model
+    model_g = api.load('glove-wiki-gigaword-300')
     
     
     df['options'] = df.apply(opt, axis=1)
@@ -140,7 +140,7 @@ def gen_ex(text, model):
     return df
     
 
-df = gen_ex(text, model)
+#df = gen_ex(text, model)
 
 
 
