@@ -25,11 +25,9 @@ if submit:
 
     
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-    fp = open(text)
-    data = fp.read()
             
     splitter = SentenceSplitter(language='en')
-    sentences = splitter.split(text=data)
+    sentences = splitter.split(text=text)
             
     df = pd.DataFrame()
             
