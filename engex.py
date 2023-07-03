@@ -21,7 +21,7 @@ st.title('Генератор упражнений по английскому я
 text = st.text_area('Input your text.')
 st.button('Submit', on_click=text)
 
-def gen_text()
+def gen_text():
     
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     fp = open(text)
