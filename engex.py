@@ -16,7 +16,7 @@ import contractions
 import streamlit as st
 
 
-    st.title('Генератор упражнений по английскому языку.')
+st.title('Генератор упражнений по английскому языку.')
 
 def inputtext():
     text = st.text_input('Input your text.')
