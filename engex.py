@@ -43,6 +43,29 @@ def sentfix(row):
 
 df['sentences'] = df['sentences'].apply(sentfix)
 
+df.loc[:,'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split())<=7 else np.random.choice(['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
+
+nlp = en_core_web_sm.load()
+
+def obj(row):
+    z = []
+    if (row['task'] == 'select_word' or  row['task'] =='missing_word'):
+        for token in nlp(row['sentences']):
+            if token.pos_ in ['VERB', 'ADJ'] and len(token) > 2:
+                z.append(str(token).lower())
+        try:
+            return np.random.choice(z)
+        except:
+            pass
+    else:
+        pass
+
+df['word'] = df.apply(obj, axis=1)
+
+model_g = api.load('word2vec-google-news-300')
+
+
+
 
 
 
