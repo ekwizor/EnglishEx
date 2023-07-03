@@ -138,9 +138,10 @@ if submit:
                 except:
                     pass
         ddf.dropna()
+        num = len(ddf)
     else:
         st.write('Input correct text')
-num = len(ddf)
+
 
 st.subheader('Упражнения сгенерированы')
 
