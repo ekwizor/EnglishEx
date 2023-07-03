@@ -21,28 +21,23 @@ st.title('Генератор упражнений по английскому я
 text = st.text_area('Input your text.')
 
 
+tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+fp = open(text)
+data = fp.read()
     
+splitter = SentenceSplitter(language='en')
+sentences = splitter.split(text=data)
+    
+df = pd.DataFrame()
+    
+l = []
+for i in sentences:
+    if i == "":
+        pass
+    else:
+        l.append(i)
+df['sentences'] = l
 
-def make_dataframe():
-    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-    fp = open(text)
-    data = fp.read()
-    
-    splitter = SentenceSplitter(language='en')
-    sentences = splitter.split(text=data)
-    
-    df = pd.DataFrame()
-    
-    l = []
-    for i in sentences:
-        if i == "":
-            pass
-        else:
-            l.append(i)
-    df['sentences'] = l
-    return df
-
-df = make_dataframe()
 
 def sentfix(row):
     return contractions.fix(row)
