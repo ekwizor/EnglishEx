@@ -139,14 +139,16 @@ if submit:
                     pass
         ddf.dropna()
         num = len(ddf)
+        st.subheader('Упражнения сгенерированы')
+        number = st.number_input('Insert a number', step=1, max_value=num)
+        st.write('Max number of exercises', num)
     else:
         st.write('Input correct text')
 
 
-st.subheader('Упражнения сгенерированы')
 
-number = st.number_input('Insert a number', step=1, max_value=num)
-st.write('Max number of exercises', num)
+
+
 
 #if number:
     
