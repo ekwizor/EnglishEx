@@ -147,7 +147,7 @@ else:
 
 form_2 = st.form("my_2_form")
 num = form_2.number_input('Input num', step=1, max_value=10)
-subm = form.form_submit_button('Submit')
+subm = form_2.form_submit_button('Submit')
 
 
 
