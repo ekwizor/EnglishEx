@@ -141,12 +141,6 @@ if submitted:
         my_bar.progress(100, text='Done')
         st.write('Генерация завершена')
         
-#form_2 = st.form("my_2_form"№
-#num = form_2.input_number(value=int)
-
-
-
-#number = st.input_number(value=int)
 
 st.subtitle('Генерация завершена.')
 
