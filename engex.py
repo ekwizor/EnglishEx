@@ -29,7 +29,7 @@ if submitted:
             
         splitter = SentenceSplitter(language='en')
         sentences = splitter.split(text=text)
-        my_bar.progress(20, text='wait')        
+        my_bar.progress(20, text='Разбивка текста')        
         df = pd.DataFrame()
                 
         l = []
@@ -45,7 +45,7 @@ if submitted:
         df.loc[:,'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split())<=7 else np.random.choice(['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
         
         nlp = en_core_web_sm.load()
-        my_bar.progress(40, text='wait')
+        my_bar.progress(40, text='Загрузка модели')
         def obj(row):
             z = []
             if (row['task'] == 'select_word' or  row['task'] =='missing_word'):
@@ -62,7 +62,7 @@ if submitted:
         df['word'] = df.apply(obj, axis=1)
         
         model_g = api.load('glove-wiki-gigaword-100')
-        my_bar.progress(60, text='wait')
+        my_bar.progress(60, text='Загрузка еще одной модели')
         def opt(row):
             a = set()
             if row['task'] == 'select_word':
@@ -80,7 +80,7 @@ if submitted:
         df['options'] = df.apply(lambda x: [] if x['task'] == 'missing_word' else x['options'], axis=1)
         
         df['answer'] = 0
-        my_bar.progress(80, text='Almost')
+        my_bar.progress(80, text='Осталось чуть-чуть')
         def chunk(row):
             try:
                 p = []
@@ -138,9 +138,9 @@ if submitted:
                 except:
                     pass
         df.dropna()
-        my_bar.progress(100, text='Done')
+        my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
-        num = st.number_input('Input num', value=int)
+        num = st.number_input('Input num', value=1)
         
 
 
