@@ -140,9 +140,9 @@ if submitted:
         df.dropna()
         my_bar.progress(100, text='Done')
         st.write('Генерация завершена')
-
-        form = st.form("my_form")
-        text = form.text_area('Input your text.')
+        
+form_2 = st.form("my_2_form")
+num = form_2.input_number(value=int)
 
 
 
