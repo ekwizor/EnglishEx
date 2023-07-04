@@ -20,9 +20,10 @@ import streamlit as st
 
 st.title('Генератор упражнений по английскому языку.')
 #добавляем текст
-text = st.text_area('Input your text.')
 
-
+form = st.form("my_form")
+text = form.text_area('Input your text.')
+form.form_submit_button("Submit")
 
 splitter = SentenceSplitter(language='en')
 sentences = splitter.split(text=text)
