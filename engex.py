@@ -143,11 +143,11 @@ if submitted:
         st.write('Генерация завершена')
         
 else:
-        st.write('Что-то пошло не так')
+        pass
 
-form_2 = st.form("my_2_form")
-num = form_2.number_input('Input num', step=1, max_value=10)
-subm = form_2.form_submit_button('Submit')
+#form_2 = st.form("my_2_form")
+num = st.number_input('Input num', step=1, max_value=10)
+#subm = form_2.form_submit_button('Submit')
 
 
 
