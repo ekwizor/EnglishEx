@@ -47,7 +47,7 @@ if submitted:
                 df.loc[:,'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split())<=7 else np.random.choice(['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
                 
                 nlp = en_core_web_sm.load()
-                my_bar.progress(percent_complete + 20, text='wait')
+                my_bar.progress(percent_complete + 40, text='wait')
                 def obj(row):
                     z = []
                     if (row['task'] == 'select_word' or  row['task'] =='missing_word'):
