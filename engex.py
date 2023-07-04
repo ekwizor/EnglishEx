@@ -140,15 +140,16 @@ if submitted:
                     pass
         df.dropna()
         my_bar.progress(100, text='Готово')
-        df.to_csv('sentences')
         st.write('Генерация завершена')
 else:
         pass
 
 
 form_2 = st.form("my_2_form")
-num = st.number_input('Input num', step=1, max_value=len(pd.read_csv('sentences.csv')))
-subm = form_2.form_submit_button('Submit')
+num = st.number_input('Input num', step=1, max_value=10)
+subm = form_2.form_submit_button('Сгенерировать')
+if subm:
+        df.sample(num)
 
 
 
