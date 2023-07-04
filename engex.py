@@ -23,7 +23,7 @@ st.title('Генератор упражнений по английскому я
 
 form = st.form("my_form")
 text = form.text_area('Input your text.')
-form.form_submit_button("Submit")
+submitted = form.form_submit_button("Submit")
 if submitted:
         splitter = SentenceSplitter(language='en')
         sentences = splitter.split(text=text)
