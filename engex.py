@@ -141,9 +141,12 @@ if submitted:
         df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
-        num = st.number_input('Input num', step=1, max_value=10)
+        
+else:
+        st.write('Что-то пошло не так')
 
-
+form_2 = st.form("my_2_form")
+num = form_2.number_input('Input num', step=1, max_value=10)
 
 
 
