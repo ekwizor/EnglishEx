@@ -138,18 +138,22 @@ if submitted:
                     df.loc[i,'answer'] = list(s)[0]
                 except:
                     pass
-        df.dropna()
+        df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
+
+        
+        form_2 = st.form("my_2_form")
+        num = form_2.number_input('Input num', step=1, max_value=10)
+        subm = form_2.form_submit_button('Сгенерировать')
+        
+        if subm:
+                df.sample(num)
 else:
         pass
 
 
-form_2 = st.form("my_2_form")
-num = st.number_input('Input num', step=1, max_value=10)
-subm = form_2.form_submit_button('Сгенерировать')
-if subm:
-        df.sample(num)
+
 
 
 
