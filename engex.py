@@ -22,7 +22,7 @@ st.title('Генератор упражнений по английскому я
 #добавляем текст
 with gen_text:
 #form = st.form("my_form")
-#text = form.text_area('Input your text.')
+        text = st.text_area('Input your text.')
 #submitted = form.form_submit_button("Submit")
 #if submitted:
         my_bar = st.progress(0, text='Wait')
