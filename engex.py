@@ -146,7 +146,7 @@ else:
 
 
 form_2 = st.form("my_2_form")
-num = st.number_input('Input num', step=1, max_value=len(df.dropna()
+num = st.number_input('Input num', step=1, max_value=len(df.dropna())
 subm = form_2.form_submit_button('Submit')
 
 
