@@ -16,15 +16,15 @@ import contractions
 import streamlit as st
 
 
-
+gen_text = st.beta_container()
 
 st.title('Генератор упражнений по английскому языку.')
 #добавляем текст
-
-form = st.form("my_form")
-text = form.text_area('Input your text.')
-submitted = form.form_submit_button("Submit")
-if submitted:
+with gen_text:
+#form = st.form("my_form")
+#text = form.text_area('Input your text.')
+#submitted = form.form_submit_button("Submit")
+#if submitted:
         my_bar = st.progress(0, text='Wait')
             
         splitter = SentenceSplitter(language='en')
