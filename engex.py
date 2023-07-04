@@ -25,7 +25,7 @@ text = st.text_area('Input your text.')
 if text == "":
     st.write('Input text')
 
-submit = st.button('Submit', on_click=gen_ex)
+
 
 
 
@@ -144,7 +144,7 @@ def gen_ex(text):
     return 'Готово'
     st.write('Генерация завершена')
     
-
+submit = st.button('Submit', on_click=gen_ex)
 
 #st.subtitle('Генерация завершена.')
 
