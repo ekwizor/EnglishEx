@@ -64,7 +64,7 @@ if submitted:
                 df['word'] = df.apply(obj, axis=1)
                 
                 model_g = api.load('glove-wiki-gigaword-300')
-                my_bar.progress(percent_complete + 20, text='wait')
+                my_bar.progress(percent_complete + 60, text='wait')
                 def opt(row):
                     a = set()
                     if row['task'] == 'select_word':
@@ -82,7 +82,7 @@ if submitted:
                 df['options'] = df.apply(lambda x: [] if x['task'] == 'missing_word' else x['options'], axis=1)
                 
                 df['answer'] = 0
-                my_bar.progress(percent_complete + 20, text='wait')
+                my_bar.progress(percent_complete + 80, text='Almost')
                 def chunk(row):
                     try:
                         p = []
@@ -140,7 +140,7 @@ if submitted:
                         except:
                             pass
                 df.dropna()
-                my_bar.progress(percent_complete + 20, text='wait')
+                my_bar.progress(percent_complete + 10, text='Done')
         st.write('Генерация завершена')
 
         form = st.form("my_form")
