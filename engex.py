@@ -143,10 +143,11 @@ if submit:
                     pass
         df.dropna()
         return 'Готово'
+        st.write('Генерация завершена')
     
 
 
-st.subtitle('Генерация завершена.')
+#st.subtitle('Генерация завершена.')
 
 
 
