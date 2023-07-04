@@ -61,7 +61,7 @@ if submitted:
         
         df['word'] = df.apply(obj, axis=1)
         
-        model_g = api.load('glove-wiki-gigaword-300')
+        model_g = api.load('glove-wiki-gigaword-100')
         my_bar.progress(60, text='wait')
         def opt(row):
             a = set()
