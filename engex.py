@@ -28,7 +28,6 @@ if submitted:
         my_bar = st.progress(0, text='Wait')
 
         for percent_complete in range(100):
-            time.sleep(0.1)
             my_bar.progress(percent_complete + 1, text='wait')
         splitter = SentenceSplitter(language='en')
         sentences = splitter.split(text=text)
