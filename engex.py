@@ -148,9 +148,15 @@ if submitted:
         subm = form_2.form_submit_button('Сгенерировать')
         
         if subm:
-                df.sample(num)
-
-
+                samp_df = df.sample(num)
+                for i in range(len(samp_df)):
+                        if samp_df.loc[i, 'task'] == 'select_word':
+                                st.write('Выберете слово')
+                        if samp_df.loc[i, 'task'] == 'missing_word':
+                                st.write('Впишите слово')
+                        if samp_df.loc[i, 'task'] == 'select_sent':
+                                st.write('Выберете предложение')
+                        
 
 else:
         pass
