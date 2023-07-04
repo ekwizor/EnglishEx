@@ -158,9 +158,6 @@ if submitted:
                                 st.write('Выберете предложение')
                         
 
-else:
-        pass
-
 
 
 
