@@ -16,7 +16,7 @@ import contractions
 import streamlit as st
 
 
-gen_text = st.beta_container()
+gen_text = st.container()
 
 st.title('Генератор упражнений по английскому языку.')
 #добавляем текст
