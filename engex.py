@@ -25,6 +25,11 @@ form = st.form("my_form")
 text = form.text_area('Input your text.')
 submitted = form.form_submit_button("Submit")
 if submitted:
+        my_bar = st.progress(0, text='Wait')
+
+        for percent_complete in range(100):
+            time.sleep(0.1)
+            my_bar.progress(percent_complete + 1, text='wait')
         splitter = SentenceSplitter(language='en')
         sentences = splitter.split(text=text)
                 
@@ -137,7 +142,12 @@ if submitted:
                     pass
         df.dropna()
         st.write('Генерация завершена')
-    
+
+        form = st.form("my_form")
+        text = form.text_area('Input your text.')
+
+
+
 #number = st.input_number(value=int)
 
 #st.subtitle('Генерация завершена.')
