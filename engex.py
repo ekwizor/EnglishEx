@@ -141,7 +141,6 @@ def gen_ex(text):
             except:
                 pass
     df.dropna()
-    return 'Готово'
     st.write('Генерация завершена')
     
 submit = st.button('Submit', on_click=gen_ex)
