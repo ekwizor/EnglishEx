@@ -140,6 +140,7 @@ if submitted:
         df.dropna()
         my_bar.progress(100, text='Done')
         st.write('Генерация завершена')
+        num = st.number_input('Input num', value=int)
         
 
 
