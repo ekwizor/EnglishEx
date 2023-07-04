@@ -138,7 +138,7 @@ if submitted:
         df.dropna()
         st.write('Генерация завершена')
     
-number = st.input_number(value=int)
+#number = st.input_number(value=int)
 
 #st.subtitle('Генерация завершена.')
 
