@@ -143,7 +143,7 @@ if submitted:
         st.write('Генерация завершена')
 
 form2 = st.form("my_form2")
-form2.input_number(value=1)
+form2.number_input(value=1)
 subm = form2.form_submit_button("Submit")
                         
 
