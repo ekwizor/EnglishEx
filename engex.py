@@ -143,11 +143,13 @@ if submitted:
         st.write('Генерация завершена')
         
         num = st.number_input('Input num of exercises', step=1, max_value=len(df))
-        df_samp = df.sample(num)
-        st.dataframe(data=df_samp)
 
-
-
+        form2 = st.form("my_form2")
+        subm = form2.form_submit_button("Submit")
+        if subm:
+        
+                df_samp = df.sample(num)
+                st.dataframe(data=df_samp)
                         
 
 
