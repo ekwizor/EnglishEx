@@ -148,7 +148,7 @@ if submitted:
 
         if subm:
                 df_samp = df.sample(num)
-                st.dataframe(data=df_samp)
+                form2.dataframe(data=df_samp)
 
 
 
