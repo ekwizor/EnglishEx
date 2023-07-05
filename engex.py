@@ -142,13 +142,9 @@ if submitted:
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
         
-        form2 = st.form("my_form2")
         num = form2.number_input('Input num of exercises', step=1, max_value=len(df))
-        subm = form2.form_submit_button("Submit")
-
-        if subm:
-                df_samp = df.sample(num)
-                form2.dataframe(data=df_samp)
+        df_samp = df.sample(num)
+        st.dataframe(data=df_samp)
 
 
 
