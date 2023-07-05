@@ -148,9 +148,7 @@ if submitted:
                 st.warning('Please input a num.')
                 st.stop()
                 st.success('Thank you for inputting a num.')
-        
-        df_samp = df.sample(num)
-        st.dataframe(data=df_samp)
+        st.dataframe(data=df.sample(num))
                         
 
 
