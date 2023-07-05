@@ -17,14 +17,14 @@ import streamlit as st
 
 
 
-
-
 #добавляем текст
 st.title('Генератор упражнений по английскому языку.')
 form = st.form("my_form")
 
+#создаем форму
 text = form.text_area('Input your text.')
 submitted = form.form_submit_button("Submit")
+#генерация конечного датафрейма
 if submitted:
         my_bar = st.progress(0, text='Wait')
             
@@ -141,11 +141,13 @@ if submitted:
         df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
+        
+        form2 = st.form("my_form2")
+        form2.number_input('Input num of exercises', step=1, max_value=len(df))
+        subm = form2.form_submit_button("Submit")
 
 
-form2 = st.form("my_form2")
-form2.number_input('Input num of exercises', step=1, max_value=len(df))
-subm = form2.form_submit_button("Submit")
+
                         
 
 
