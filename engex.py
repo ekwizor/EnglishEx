@@ -142,20 +142,9 @@ if submitted:
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
 
-        
-        form_2 = st.form("my_2_form")
-        num = form_2.number_input('Input num', step=1, max_value=len(df))
-        subm = form_2.form_submit_button('Сгенерировать')
-        
-        if subm:
-                samp_df = df.sample(num)
-                for i in range(len(samp_df)):
-                        if samp_df.loc[i, 'task'] == 'select_word':
-                                st.write('Выберете слово')
-                        if samp_df.loc[i, 'task'] == 'missing_word':
-                                st.write('Впишите слово')
-                        if samp_df.loc[i, 'task'] == 'select_sent':
-                                st.write('Выберете предложение')
+form2 = st.form("my_form")
+form2.input_number(value=1)
+submitted = form2.form_submit_button("Submit")
                         
 
 
