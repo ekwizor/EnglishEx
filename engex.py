@@ -144,7 +144,7 @@ if submitted:
 
 
 form2 = st.form("my_form2")
-form2.number_input('Input num of exercises')
+form2.number_input('Input num of exercises', step=1)
 subm = form2.form_submit_button("Submit")
                         
 
