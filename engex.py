@@ -142,8 +142,9 @@ if submitted:
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
 
+
 form2 = st.form("my_form2")
-form2.number_input(step=1)
+form2.number_input('Input num of exercises')
 subm = form2.form_submit_button("Submit")
                         
 
