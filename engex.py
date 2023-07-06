@@ -146,7 +146,7 @@ if submitted:
         data=df.sample(num)
 
         for i, row in data.iterrows():
-                sentence = row.['sentences']
+                sentence = row['sentences']
                 task = row['task']
                 option = row['options']
                 answ = row['answer']
