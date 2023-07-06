@@ -143,12 +143,13 @@ if submitted:
         st.write('Генерация завершена')
         
         num = st.number_input('Input num of exercises', step=1, max_value=len(df))
+        data = st.dataframe(data=df.sample(num))
 
-        if not num:
-                st.warning('Please input a num.')
-                st.stop()
-                st.success('Thank you for inputting a num.')
-                st.dataframe(data=df.sample(num))
+        #if not num:
+                #st.warning('Please input a num.')
+                #st.stop()
+                #st.success('Thank you for inputting a num.')
+                
                         
 
 
