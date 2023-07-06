@@ -146,9 +146,9 @@ if submitted:
         data=df.sample(num)
 
         for i in range(len(data)):
-                st.subheader(f'{i+1} управжение')
+                st.subheader(f'{i+1} упражнение')
                 if data.loc[i, 'task'] == 'select_word':
-                        st.write(data.loc[i, 'sentences'])
+                        st.write(data.loc[i])
                 else:
                         pass
         
