@@ -146,7 +146,7 @@ if submitted:
         data=df.sample(num)
 
         for i in range(len(data)):
-                st.subheader(i+1)
+                st.subheader(f'{i+1} управжение')
         
 
 
