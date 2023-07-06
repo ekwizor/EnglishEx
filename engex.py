@@ -142,8 +142,13 @@ if submitted:
         df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
+
+        data=df.sample(num)
+
+        for i in range(len(data)):
+                st.write(i, 'упражнение')
         
-        data = st.dataframe(data=df.sample(num))
+
 
                 
                         
