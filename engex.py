@@ -156,7 +156,9 @@ if submitted:
                 if task == 'select_word':
                         st.write(sentence)
                 elif task =='missing_word':
-                        st.write(sentence)
+                        words = sentence.split()
+                        words = words.replace(option, '_____')
+                        st.write(' '.join(words))
                 else:
                         pass
         
