@@ -147,6 +147,7 @@ if submitted:
 
         for i, row in data.iterrows():
                 sentence = row['sentences']
+                odj = row['word']
                 task = row['task']
                 option = row['options']
                 answ = row['answer']
@@ -157,7 +158,7 @@ if submitted:
                         st.write(sentence)
                 elif task =='missing_word':
                         words = sentence.split()
-                        words = words.replace(answer, '_____')
+                        words = words.replace(obj, '_____')
                         st.write(' '.join(words))
                 else:
                         pass
