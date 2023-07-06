@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+er# -*- coding: utf-8 -*-
 import nltk
 import pandas as pd
 import nltk.data
@@ -146,7 +146,7 @@ if submitted:
         data=df.sample(num)
 
         for i in range(len(data)):
-                st.subtitle(i, 'упражнение')
+                st.subheader(i, 'упражнение')
         
 
 
