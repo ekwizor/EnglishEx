@@ -146,7 +146,7 @@ if submitted:
         data=df.sample(num)
 
         for i in range(len(data)):
-                st.write(i, 'упражнение')
+                st.subtitle(i, 'упражнение')
         
 
 
