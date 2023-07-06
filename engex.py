@@ -143,7 +143,7 @@ if submitted:
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
 
-        data=df.sample(num)
+        data=df.sample(num, ignore_index=True)
 
         for i, row in data.iterrows():
                 sentence = row['sentences']
