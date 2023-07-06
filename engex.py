@@ -23,6 +23,7 @@ form = st.form("my_form")
 
 #создаем форму
 text = form.text_area('Input your text.')
+num = form.number_input('Input num of exercises', step=1, max_value=10)
 submitted = form.form_submit_button("Submit")
 #генерация конечного датафрейма
 if submitted:
@@ -142,13 +143,8 @@ if submitted:
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
         
-        num = st.number_input('Input num of exercises', step=1, max_value=len(df))
         data = st.dataframe(data=df.sample(num))
 
-        #if not num:
-                #st.warning('Please input a num.')
-                #st.stop()
-                #st.success('Thank you for inputting a num.')
                 
                         
 
