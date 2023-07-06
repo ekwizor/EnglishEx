@@ -158,7 +158,8 @@ if submitted:
                         st.write(sentence)
                 elif task =='missing_word':
                         words = sentence.split()
-                        words = words.replace(obj, '_____')
+                        word_ind = obj[1]
+                        words[word_ind] = '______'
                         st.write(' '.join(words))
                 else:
                         pass
