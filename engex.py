@@ -145,11 +145,11 @@ if submitted:
 
         data=df.sample(num)
 
-        for i in range(len(data)):
-                sentence = data.loc[i, 'sentences']
-                task = data.loc[i, 'task']
-                option = data.loc[i, 'options']
-                answ = data.loc[i, 'answer']
+        for i, row in data.iterrows():
+                sentence = row.['sentences']
+                task = row['task']
+                option = row['options']
+                answ = row['answer']
                 
                 st.subheader(f'{i+1} упражнение')
                 
