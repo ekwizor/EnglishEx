@@ -147,6 +147,12 @@ if submitted:
 
         for i in range(len(data)):
                 st.subheader(f'{i+1} управжение')
+                if data.loc[i, 'task'] == 'select_word':
+                        for i in range(len(data.loc[i, 'options'])):
+                            option = data['options'][i]
+                            data['options'][i] = st.selectbox('nolabel', 
+                                             ['–––'] + option, 
+                                             label_visibility="hidden")
         
 
 
