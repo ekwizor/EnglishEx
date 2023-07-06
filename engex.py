@@ -161,6 +161,7 @@ if submitted:
                         words = sentence.replace(answ, '______')
                         st.write(words)
                         st.write(f'First letter: {answ[0]}')
+                        st.write(answ)
                 else:
                         pass
         
