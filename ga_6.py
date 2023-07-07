@@ -31,8 +31,6 @@ def show_ex(df, num):
                 task = row['task']
                 option = row['options']
                 answ = row['answer']
-
-                st.dataframe(data)
                 
                 st.subheader(f'{i+1} упражнение')
                 
@@ -56,7 +54,7 @@ def show_ex(df, num):
                 else:
                         pass
 
-#@st.cache_data
+@st.cache_data
 def gen_ex(text, num):
         my_bar = st.progress(0, text='Wait')
         splitter = SentenceSplitter(language='en')
