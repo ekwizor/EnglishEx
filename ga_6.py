@@ -16,6 +16,11 @@ import contractions
 import streamlit as st
 
 
+text = st.text_area('Input your text.')
+num = st.number_input('Input num of exercises', step=1, max_value=10)
+st.button("Submit", on_click=gen_ex, args=(text, num))
+
+
 def show_ex(df, num):
         
         data=df.sample(num, ignore_index=True)
@@ -171,15 +176,11 @@ def gen_ex(text, num):
         return df, num
 
 def get_text():
-        text = st.text_area('Input your text.')
-        num = st.number_input('Input num of exercises', step=1, max_value=10)
-        st.button("Submit", on_click=gen_ex, args=(text, num))
+        
 
 
 if __name__ == '__main__':
         st.title('Генератор упражнений по английскому')
-        get_text()
-        show_ex(gen_ex)
 
 
 
