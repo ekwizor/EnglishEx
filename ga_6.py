@@ -196,8 +196,8 @@ if __name__ == '__main__':
                 if 'dataframe' not in st.session_state:
                         st.session_state['dataframe'] = gen_ex(text, num)
 
-        df = st.session_state['dataframe'][0]
-        data=df.sample(num, ignore_index=True)
+                df = st.session_state['dataframe'][0]
+                data=df.sample(num, ignore_index=True)
 
         st.write(data)
       
