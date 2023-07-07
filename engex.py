@@ -161,8 +161,8 @@ if submitted:
                 elif task =='missing_word':
                         words = sentence.split()
                         ind = words.index(answ)
-                        words = sentence.replace(words[ind][1:-1], '______')
-                        st.write(words)
+                        sent_ind = sentence.replace(words[ind][1:-1], '______')
+                        st.write(sent_ind)
 
                         st.write(f'First letter: {answ[0]}')
                         st.write(f'Last letter: {answ[-1]}')
