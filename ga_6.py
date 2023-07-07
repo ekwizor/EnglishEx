@@ -199,7 +199,7 @@ if __name__ == '__main__':
                 df = st.session_state['dataframe'][0]
                 data=df.sample(num, ignore_index=True)
 
-        st.write(data)
+                st.write(data)
       
 
     
