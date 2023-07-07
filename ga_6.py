@@ -15,9 +15,7 @@ import spacy
 import contractions
 import streamlit as st
 
-st.title('Генератор упражнений по английскому')
-text = st.text_area('Input your text.')
-num = st.number_input('Input num of exercises', step=1, max_value=10)
+
 
 
 
@@ -57,7 +55,7 @@ def show_ex(df, num):
                 else:
                         pass
 
-#@st.cache_data
+@st.cache_data
 def gen_ex(text, num):
         my_bar = st.progress(0, text='Wait')
         splitter = SentenceSplitter(language='en')
@@ -182,6 +180,9 @@ def gen_ex(text, num):
 
 
 if __name__ == '__main__':
+        st.title('Генератор упражнений по английскому')
+        text = st.text_area('Input your text.')
+        num = st.number_input('Input num of exercises', step=1, max_value=10)
         st.button("Submit", on_click=gen_ex, args=(text, num))
 
     
