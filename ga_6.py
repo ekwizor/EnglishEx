@@ -38,10 +38,8 @@ def show_ex(df, num):
                         st.write(sentence)
                 elif task =='missing_word':
                         #words = sentence.split()
-                        words = sentence.replace(answ, '______')
+                        words = sentence.replace(answ[1:-2], '______')
                         st.write(words)
-                        st.write(f'First letter: {answ[0]}')
-                        st.write(f'Last letter: {answ[-1]}')
                         
                         a = st.text_input('Input your answer:', key=i)
                         if a=='':
@@ -55,7 +53,7 @@ def show_ex(df, num):
                 else:
                         pass
 
-@st.cache_data
+#@st.cache_data
 def gen_ex(text, num):
         my_bar = st.progress(0, text='Wait')
         splitter = SentenceSplitter(language='en')
