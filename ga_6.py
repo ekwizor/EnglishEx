@@ -38,7 +38,7 @@ def show_ex(df, num):
                         st.write(sentence)
                 elif task =='missing_word':
                         words = sentence.split()
-                        ind = words.find(answ)
+                        ind = words.index(answ)
                         words = sentence.replace(words[ind], '______')
                         st.write(words)
                         
