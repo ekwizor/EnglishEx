@@ -1,5 +1,18 @@
+import nltk
+import pandas as pd
+import nltk.data
+import seaborn as sns
+from sentence_splitter import SentenceSplitter
+nltk.download('stopwords')
+nltk.download('punkt')
+import gensim.downloader as api
+import en_core_web_sm
+import numpy as np
+from nltk.corpus import stopwords
+import pyinflect
+import spacy
+import contractions
 import streamlit as st
-import random
 
 def gen_ex(text, num):
 
