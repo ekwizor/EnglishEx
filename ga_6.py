@@ -19,7 +19,7 @@ import streamlit as st
 
 
 @st.cache_data
-def gen_ex(text):
+def gen_ex(text, num):
         my_bar = st.progress(0, text='Wait')
         splitter = SentenceSplitter(language='en')
         sentences = splitter.split(text=text)
