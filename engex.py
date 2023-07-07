@@ -161,6 +161,15 @@ if submitted:
                         words = sentence.replace(answ, '______')
                         st.write(words)
                         st.write(f'First letter: {answ[0]}')
+                        st.write(f'Last letter: {answ[-1}')
+                        
+                        a = st.text_input('Input your answer:')
+                        if a = answ:
+                                st.success('Success!', icon="✅")
+                        else:
+                                st.error('Error', icon="🚨")
+                        
+                                      
                         st.write(answ)
                 else:
                         pass
