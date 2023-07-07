@@ -198,7 +198,7 @@ if __name__ == '__main__':
 
         data = st.session_state['dataframe'][0]
 
-        st.write(data.loc[0])
+        st.write(data)
       
 
     
