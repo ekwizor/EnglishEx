@@ -144,7 +144,9 @@ if submitted:
         st.write('Генерация завершена')
 
         data=df.sample(num, ignore_index=True)
-
+        
+        @st.cache_data
+        
         for i, row in data.iterrows():
                 sentence = row['sentences']
                 odj = row['word']
