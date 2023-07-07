@@ -145,7 +145,7 @@ if submitted:
 
         data=df.sample(num, ignore_index=True)
         
-        @st.cache_data
+        #@st.cache_data
         
         for i, row in data.iterrows():
                 sentence = row['sentences']
