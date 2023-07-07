@@ -37,8 +37,9 @@ def show_ex(df, num):
                 if task == 'select_word':
                         st.write(sentence)
                 elif task =='missing_word':
-                        #words = sentence.split()
-                        words = sentence.replace(answ[1:-2], '______')
+                        words = sentence.split()
+                        ind = words.find(answ)
+                        words = sentence.replace(words[ind], '______')
                         st.write(words)
                         
                         a = st.text_input('Input your answer:', key=i)
