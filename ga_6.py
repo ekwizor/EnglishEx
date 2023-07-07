@@ -42,7 +42,7 @@ def show_ex(df, num):
                         words = sentence.replace(words[ind][1:-1], '_'*len(words[ind][1:-1]))
                         st.write(words)
                         
-                        a = st.text_input('Input your answer:', key=i)
+                        a = st.text_input('Input your answer:')
                         if a=='':
                                 pass
                         elif a.lower() == answ.lower():
