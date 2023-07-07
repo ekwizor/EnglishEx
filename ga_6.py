@@ -20,7 +20,7 @@ import streamlit as st
 
 
 
-
+@st.cache_data(experimental_allow_widgets=True)
 def show_ex(df, num):
         
         data=df.sample(num, ignore_index=True)
@@ -54,7 +54,7 @@ def show_ex(df, num):
                 else:
                         pass
 
-@st.cache_data(experimental_allow_widgets=True)
+
 def gen_ex(text, num):
         my_bar = st.progress(0, text='Wait')
         splitter = SentenceSplitter(language='en')
