@@ -191,9 +191,10 @@ if __name__ == '__main__':
         if text == '':
                 pass
         num = st.number_input('Input num of exercises', step=1, max_value=10)
-        #bt = st.button("Submit", on_click=show_ex, args=(text, num))
-        if 'dataframe' not in st.session_state:
-                st.session_state['dataframe'] = gen_ex(text, num)
+        bt = st.button("Submit")
+        if bt:    
+                if 'dataframe' not in st.session_state:
+                        st.session_state['dataframe'] = gen_ex(text, num)
 
       
 
