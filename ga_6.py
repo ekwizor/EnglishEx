@@ -16,7 +16,7 @@ import contractions
 import streamlit as st
 
 
-
+st.title('Генератор упражнений по английскому')
 
 @st.cache_data
 def gen_ex(text, num):
