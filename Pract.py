@@ -168,7 +168,7 @@ def main():
 
     if st.button("Сгенерировать упражнения"):
         # Генерация упражнений по тексту и количеству
-        exercises = gene_ex(text, num_exercises)
+        exercises = gen_ex(text, num_exercises)
 
         # Отображение упражнений
         #for i, exercise in enumerate(exercises):
