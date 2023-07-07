@@ -28,7 +28,7 @@ def show_ex(df, num):
         if 'dataframe' not in st.session_state:
                 st.session_state['dataframe'] = data
         
-        for i, row in data.iterrows():
+        for i, row in st.session_state['dataframe'].iterrows():
                 sentence = row['sentences']
                 odj = row['word']
                 task = row['task']
@@ -42,7 +42,7 @@ def show_ex(df, num):
                 elif task =='missing_word':
                         words = sentence.split()
                         ind = words.index(answ)
-                        words = sentence.replace(words[ind][1:-1], '_'*len(words[ind][1:-1]))
+                        words = sentence.replace(words[ind], '_'*len(words[ind]))
                         st.write(words)
                         
                         a = st.text_input('Input your answer:', key=f'{i}')
