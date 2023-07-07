@@ -144,8 +144,7 @@ def get_text():
         form = st.form("my_form")
         text = form.text_area('Input your text.')
         num = form.number_input('Input num of exercises', step=1, max_value=10)
-        submitted = form.form_submit_button("Submit", on_click=gen_ex)
-        return text, num
+        form.form_submit_button("Submit", on_click=gen_ex, args=(text, num)
 
 
 if __name__ == '__main__':
