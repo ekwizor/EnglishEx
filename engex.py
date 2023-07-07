@@ -164,9 +164,9 @@ if submitted:
                         st.write(words)
                         st.write(f'First letter: {answ[0]}')
                         st.write(f'Last letter: {answ[-1]}')
-                        
+                        st.session_state.i==''
                         a = st.text_input('Input your answer:', key=i)
-                        if st.session_state.i=='':
+                        if a:
                                 pass
                         elif a.lower() == answ.lower():
                                 st.success('Success!', icon="✅")      
