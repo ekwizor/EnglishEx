@@ -15,7 +15,7 @@ import spacy
 import contractions
 import streamlit as st
 
-def show_ex(df):
+def show_ex(df, num):
         
         df=df.sample(num, ignore_index=True)
         
@@ -168,7 +168,7 @@ def gen_ex(text, num):
         df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
-        st.button('Show the exercises', on_click=show_ex, args=(df))
+        show_ex(df, num)
 
 def get_text():
         text = st.text_area('Input your text.')
