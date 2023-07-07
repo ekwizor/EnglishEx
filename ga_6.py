@@ -25,7 +25,7 @@ def show_ex(df, num):
         
         data=df.sample(num, ignore_index=True)
         
-        for i, row in st.session_state['dataframe'].iterrows():
+        for i, row in data.iterrows():
                 sentence = row['sentences']
                 odj = row['word']
                 task = row['task']
@@ -174,7 +174,7 @@ def gen_ex(text, num):
         st.write('Генерация завершена')
         if 'dataframe' not in st.session_state:
                 st.session_state['dataframe'] = df
-                show_ex(df, num)
+        show_ex(df, num)
 
 #def get_text():
         
