@@ -26,7 +26,7 @@ def show_ex(df, num):
         data=df.sample(num, ignore_index=True)
         data = st.dataframe(data, key='dataframe')
         
-        for i, row in st.session_state.dataframe.iterrows():
+        for i, row in data.iterrows():
                 sentence = row['sentences']
                 odj = row['word']
                 task = row['task']
