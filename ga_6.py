@@ -50,7 +50,7 @@ def show_ex(df, num):
                 else:
                         pass
 
-@st.cache_data
+#@st.cache_data
 def gen_ex(text, num):
         my_bar = st.progress(0, text='Wait')
         splitter = SentenceSplitter(language='en')
