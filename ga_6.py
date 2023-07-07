@@ -53,7 +53,9 @@ def show_ex(df, num):
                         st.write(answ)
                 else:
                         pass
-
+                        
+if 'dataframe' not in st.session_state:
+        st.session_state['dataframe'] = gen_ex()
 
 def gen_ex(text, num):
         my_bar = st.progress(0, text='Wait')
@@ -174,8 +176,7 @@ def gen_ex(text, num):
         st.write('Генерация завершена')
         return df
         
-if 'dataframe' not in st.session_state:
-        st.session_state['dataframe'] = gen_ex()
+
         
 
 #def get_text():
@@ -188,9 +189,7 @@ if __name__ == '__main__':
         text = st.text_area('Input your text.')
         num = st.number_input('Input num of exercises', step=1, max_value=10)
         st.button("Submit", on_click=gen_ex, args=(text, num))
-        if 'dataframe' not in st.session_state:
-                st.session_state['dataframe'] = gen_ex()
-                show_ex(st.session_state, num)
+
       
 
     
