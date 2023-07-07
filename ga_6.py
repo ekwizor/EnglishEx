@@ -174,7 +174,8 @@ def gen_ex(text, num):
         st.write('Генерация завершена')
         if 'dataframe' not in st.session_state:
                 st.session_state['dataframe'] = df
-        show_ex(df, num)
+        st.write(st.session_state)
+        #show_ex(df, num)
 
 #def get_text():
         
