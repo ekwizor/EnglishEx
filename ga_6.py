@@ -172,10 +172,11 @@ def gen_ex(text, num):
         df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
+        show_ex(df, num)
         
 if 'dataframe' not in st.session_state:
         st.session_state['dataframe'] = gen_ex()
-        show_ex(gen_ex(df, num))
+        
 
 #def get_text():
         
