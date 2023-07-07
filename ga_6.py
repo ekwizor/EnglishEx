@@ -24,6 +24,7 @@ import streamlit as st
 def show_ex(df, num):
         
         data=df.sample(num, ignore_index=True)
+        st.datafreame(data)
         
         for i, row in data.iterrows():
                 sentence = row['sentences']
