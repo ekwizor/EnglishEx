@@ -182,9 +182,6 @@ def gen_ex(text, num):
 
 
 if __name__ == '__main__':
-        st.title('Генератор упражнений по английскому')
-        text = st.text_area('Input your text.')
-        num = st.number_input('Input num of exercises', step=1, max_value=10)
         st.button("Submit", on_click=gen_ex, args=(text, num))
 
     
