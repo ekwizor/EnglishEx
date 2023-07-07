@@ -15,6 +15,8 @@ import spacy
 import contractions
 import streamlit as st
 
+
+@st.cache_data
 def show_ex(df, num):
         
         data=df.sample(num, ignore_index=True)
