@@ -175,28 +175,13 @@ def gen_ex(text, num):
         st.write('Генерация завершена')
         return df, num
 
-def get_text():
+#def get_text():
         
 
 
 if __name__ == '__main__':
         st.title('Генератор упражнений по английскому')
 
-
-
-
-
-
-                
-                        
-
-
-
-
-
-
-
-#if number:
     
 
 
