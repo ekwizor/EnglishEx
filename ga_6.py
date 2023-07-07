@@ -24,9 +24,6 @@ import streamlit as st
 def show_ex(df, num):
         
         data=df.sample(num, ignore_index=True)
-
-        if 'dataframe' not in st.session_state:
-                st.session_state['dataframe'] = data
         
         for i, row in st.session_state['dataframe'].iterrows():
                 sentence = row['sentences']
@@ -175,6 +172,8 @@ def gen_ex(text, num):
         df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
+        if 'dataframe' not in st.session_state:
+                st.session_state['dataframe'] = df
         show_ex(df, num)
 
 #def get_text():
