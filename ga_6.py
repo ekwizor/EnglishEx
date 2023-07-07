@@ -20,13 +20,13 @@ import streamlit as st
 
 
 
-@st.cache_data(experimental_allow_widgets=True)
+#@st.cache_data(experimental_allow_widgets=True)
 def show_ex(df, num):
         
         data=df.sample(num, ignore_index=True)
-        st.datafreame(data)
+        data = st.dataframe(data, key='dataframe)
         
-        for i, row in data.iterrows():
+        for i, row in st.session_state.dataframe.iterrows():
                 sentence = row['sentences']
                 odj = row['word']
                 task = row['task']
