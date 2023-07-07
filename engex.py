@@ -164,7 +164,9 @@ if submitted:
                         st.write(f'Last letter: {answ[-1]}')
                         
                         a = st.text_input('Input your answer:')
-                        if a == answ:
+                        if a.lower() == answ.lower():
+                                if your_var_name=='':
+                                        pass
                                 st.success('Success!', icon="✅")
                         else:
                                 st.error('Error', icon="🚨")
