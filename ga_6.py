@@ -22,7 +22,7 @@ import streamlit as st
 
 #@st.cache_data(experimental_allow_widgets=True)
 def show_ex(text, num):
-        df, num = gen_ex(text, num)
+        #df, num = gen_ex(text, num)
         data=df.sample(num, ignore_index=True)
         st.dataframe(data)
         
@@ -188,10 +188,12 @@ if __name__ == '__main__':
         st.write('_'*20)
         st.title('Генератор упражнений по английскому')
         text = st.text_area('Input your text.')
+        if text == '':
+                pass
         num = st.number_input('Input num of exercises', step=1, max_value=10)
-        st.button("Submit", on_click=show_ex, args=(text, num))
-        #if 'dataframe' not in st.session_state:
-                #st.session_state['dataframe'] = 
+        #bt = st.button("Submit", on_click=show_ex, args=(text, num))
+        if 'dataframe' not in st.session_state:
+                st.session_state['dataframe'] = gen_ex(text, num)
 
       
 
