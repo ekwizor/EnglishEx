@@ -24,7 +24,9 @@ import streamlit as st
 def show_ex(df, num):
         
         data=df.sample(num, ignore_index=True)
-        data = st.dataframe(data, key='dataframe')
+
+        if 'dataframe' not in st.session_state:
+                st.session_state['dataframe'] = data
         
         for i, row in data.iterrows():
                 sentence = row['sentences']
