@@ -154,9 +154,6 @@ def gen_ex():
                         pass
 
 
-
-        return df
-
 def main():
     st.title("Генератор упражнений по английскому языку")
 
