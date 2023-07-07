@@ -196,37 +196,7 @@ if __name__ == '__main__':
                 if 'dataframe' not in st.session_state:
                         st.session_state['dataframe'] = gen_ex(text, num)
 
-        data=st.session_state.dataframe.sample(num, ignore_index=True)
-        
-        for i, row in data.iterrows():
-                sentence = row['sentences']
-                odj = row['word']
-                task = row['task']
-                option = row['options']
-                answ = row['answer']
-                
-                st.subheader(f'{i+1} упражнение')
-                
-                if task == 'select_word':
-                        st.write(sentence)
-                elif task =='missing_word':
-                        words = sentence.split()
-                        ind = words.index(answ)
-                        words = sentence.replace(words[ind], '_'*len(words[ind]))
-                        st.write(words)
-                        
-                        a = st.text_input('Input your answer:', key=f'{i}')
-                        if a=='':
-                                pass
-                        elif a.lower() == answ.lower():
-                                st.success('Success!', icon="✅")      
-                        else:
-                                st.error('Error', icon="🚨")
-                                      
-                        st.write(answ)
-                else:
-                        pass
-
+        st.write(st.session_state['dataframe'])
       
 
     
