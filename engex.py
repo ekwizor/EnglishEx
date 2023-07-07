@@ -154,27 +154,27 @@ if submitted:
                 
                 st.subheader(f'{i+1} упражнение')
                 
-                if task == 'select_word':
-                        st.write(sentence)
-                elif task =='missing_word':
-                        #words = sentence.split()
-                        words = sentence.replace(answ, '______')
-                        st.write(words)
-                        st.write(f'First letter: {answ[0]}')
-                        st.write(f'Last letter: {answ[-1]}')
-                        
-                        a = st.text_input('Input your answer:')
-                        if a=='':
-                                pass
-                        elif a.lower() == answ.lower():
-                                form.success('Success!', icon="✅")      
-                        else:
-                                form.error('Error', icon="🚨")
-                        
-                                      
-                        st.write(answ)
-                else:
+        if task == 'select_word':
+                st.write(sentence)
+        elif task =='missing_word':
+                #words = sentence.split()
+                words = sentence.replace(answ, '______')
+                st.write(words)
+                st.write(f'First letter: {answ[0]}')
+                st.write(f'Last letter: {answ[-1]}')
+                
+                a = st.text_input('Input your answer:')
+                if a=='':
                         pass
+                elif a.lower() == answ.lower():
+                        form.success('Success!', icon="✅")      
+                else:
+                        form.error('Error', icon="🚨")
+                
+                              
+                st.write(answ)
+        else:
+                pass
         
 
 
