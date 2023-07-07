@@ -166,12 +166,10 @@ if submitted:
                         a = st.text_input('Input your answer:')
                         if a=='':
                                 pass
+                        elif if a.lower() == answ.lower()::
+                                st.success('Success!', icon="✅")      
                         else:
-                                if a.lower() == answ.lower():
-                                        
-                                        st.success('Success!', icon="✅")
-                                else:
-                                        st.error('Error', icon="🚨")
+                                st.error('Error', icon="🚨")
                         
                                       
                         st.write(answ)
