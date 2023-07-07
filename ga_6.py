@@ -31,6 +31,8 @@ def show_ex(df, num):
                 task = row['task']
                 option = row['options']
                 answ = row['answer']
+
+                st.dataframe(data)
                 
                 st.subheader(f'{i+1} упражнение')
                 
@@ -41,7 +43,7 @@ def show_ex(df, num):
                         ind = words.index(answ)
                         words = sentence.replace(words[ind][1:-1], '_'*len(words[ind][1:-1]))
                         st.write(words)
-                        st.dataframe(data)
+                        
                         a = st.text_input('Input your answer:', key=i)
                         if a=='':
                                 pass
