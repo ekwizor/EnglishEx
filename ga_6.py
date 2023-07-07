@@ -15,7 +15,40 @@ import spacy
 import contractions
 import streamlit as st
 
-
+def show_ex(df):
+        
+        data=df.sample(num, ignore_index=True)
+        
+        for i, row in data.iterrows():
+                sentence = row['sentences']
+                odj = row['word']
+                task = row['task']
+                option = row['options']
+                answ = row['answer']
+                
+                st.subheader(f'{i+1} упражнение')
+                
+                if task == 'select_word':
+                        st.write(sentence)
+                elif task =='missing_word':
+                        #words = sentence.split()
+                        words = sentence.replace(answ, '______')
+                        st.write(words)
+                        st.write(f'First letter: {answ[0]}')
+                        st.write(f'Last letter: {answ[-1]}')
+                        
+                        a = st.text_input('Input your answer:', key=i)
+                        if a=='':
+                                pass
+                        elif a.lower() == answ.lower():
+                                st.success('Success!', icon="✅")      
+                        else:
+                                st.error('Error', icon="🚨")
+                        
+                                      
+                        st.write(answ)
+                else:
+                        pass
 
 @st.cache_data
 def gen_ex(text, num):
@@ -135,7 +168,7 @@ def gen_ex(text, num):
         df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
-        return df
+        show_ex(df)
 
 def get_text():
         text = st.text_area('Input your text.')
