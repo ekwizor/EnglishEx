@@ -166,7 +166,7 @@ if submitted:
                         st.write(f'Last letter: {answ[-1]}')
                         
                         a = st.text_input('Input your answer:', key=i)
-                        if a=='':
+                        if st.session_state.{i}=='':
                                 pass
                         elif a.lower() == answ.lower():
                                 st.success('Success!', icon="✅")      
