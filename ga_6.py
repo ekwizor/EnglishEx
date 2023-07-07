@@ -33,9 +33,7 @@ def gen_ex(text, num):
             else:
                 l.append(i)
                     
-        my_bar = st.progress(0, text='Wait')
             
-        
         df['sentences'] = l
             
         df['sentences'] = df['sentences'].apply(lambda x: contractions.fix(x))
