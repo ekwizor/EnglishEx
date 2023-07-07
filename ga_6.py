@@ -168,7 +168,7 @@ def gen_ex(text, num):
         df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
-        st.button('Show the exercises', on_click=show_ex, args(df))
+        st.button('Show the exercises', on_click=show_ex, args=(df))
 
 def get_text():
         text = st.text_area('Input your text.')
