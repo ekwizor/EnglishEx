@@ -57,7 +57,11 @@ def show_ex(text, num):
                         
 
 
-def gen_ex(text, num):
+def gen_ex():
+        st.title('Генератор упражнений по английскому')
+        text = st.text_area('Input your text.')
+        num = st.input_number(step=1, max_value=10)
+        
         my_bar = st.progress(0, text='Wait')
         splitter = SentenceSplitter(language='en')
         sentences = splitter.split(text=text)
@@ -186,49 +190,9 @@ def gen_ex(text, num):
 
 if __name__ == '__main__':
         st.write('_'*20)
-        st.title('Генератор упражнений по английскому')
-        text = st.text_area('Input your text.')
-        if text == '':
-                pass
-        num = st.number_input('Input num of exercises', step=1, max_value=10)
-        bt = st.button("Submit")
-  
-        if 'dataframe' not in st.session_state:
-                st.session_state['dataframe'] = gen_ex(text, num)
-
-        df = st.session_state['dataframe'][0]
-        data=df.sample(num, ignore_index=True)
-
-        st.write(data)
-
-        for i, row in data.iterrows():
-                sentence = row['sentences']
-                odj = row['word']
-                task = row['task']
-                option = row['options']
-                answ = row['answer']
-                
-                st.subheader(f'{i+1} упражнение')
-                
-                if task == 'select_word':
-                        st.write(sentence)
-                elif task =='missing_word':
-                        words = sentence.split()
-                        ind = words.index(answ)
-                        words = sentence.replace(words[ind], '_'*len(words[ind]))
-                        st.write(words)
-                        
-                        a = st.text_input('Input your answer:', key=f'{i}')
-                        if a=='':
-                                pass
-                        elif a.lower() == answ.lower():
-                                st.success('Success!', icon="✅")      
-                        else:
-                                st.error('Error', icon="🚨")
-                                      
-                        st.write(answ)
-                else:
-                        pass
+        gen_ex()
+        
+        
       
 
     
