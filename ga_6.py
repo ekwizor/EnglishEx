@@ -60,7 +60,7 @@ def show_ex(text, num):
 def gen_ex():
         st.title('Генератор упражнений по английскому')
         text = st.text_area('Input your text.')
-        num = st.input_number(step=1, max_value=10)
+        num = st.number_input(step=1, max_value=10)
         
         my_bar = st.progress(0, text='Wait')
         splitter = SentenceSplitter(language='en')
