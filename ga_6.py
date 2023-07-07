@@ -192,43 +192,43 @@ if __name__ == '__main__':
                 pass
         num = st.number_input('Input num of exercises', step=1, max_value=10)
         bt = st.button("Submit")
-        if bt:    
-                if 'dataframe' not in st.session_state:
-                        st.session_state['dataframe'] = gen_ex(text, num)
+  
+        if 'dataframe' not in st.session_state:
+                st.session_state['dataframe'] = gen_ex(text, num)
 
-                df = st.session_state['dataframe'][0]
-                data=df.sample(num, ignore_index=True)
+        df = st.session_state['dataframe'][0]
+        data=df.sample(num, ignore_index=True)
 
-                st.write(data)
+        st.write(data)
 
-                for i, row in data.iterrows():
-                        sentence = row['sentences']
-                        odj = row['word']
-                        task = row['task']
-                        option = row['options']
-                        answ = row['answer']
+        for i, row in data.iterrows():
+                sentence = row['sentences']
+                odj = row['word']
+                task = row['task']
+                option = row['options']
+                answ = row['answer']
+                
+                st.subheader(f'{i+1} упражнение')
+                
+                if task == 'select_word':
+                        st.write(sentence)
+                elif task =='missing_word':
+                        words = sentence.split()
+                        ind = words.index(answ)
+                        words = sentence.replace(words[ind], '_'*len(words[ind]))
+                        st.write(words)
                         
-                        st.subheader(f'{i+1} упражнение')
-                        
-                        if task == 'select_word':
-                                st.write(sentence)
-                        elif task =='missing_word':
-                                words = sentence.split()
-                                ind = words.index(answ)
-                                words = sentence.replace(words[ind], '_'*len(words[ind]))
-                                st.write(words)
-                                
-                                a = st.text_input('Input your answer:', key=f'{i}')
-                                if a=='':
-                                        pass
-                                elif a.lower() == answ.lower():
-                                        st.success('Success!', icon="✅")      
-                                else:
-                                        st.error('Error', icon="🚨")
-                                              
-                                st.write(answ)
-                        else:
+                        a = st.text_input('Input your answer:', key=f'{i}')
+                        if a=='':
                                 pass
+                        elif a.lower() == answ.lower():
+                                st.success('Success!', icon="✅")      
+                        else:
+                                st.error('Error', icon="🚨")
+                                      
+                        st.write(answ)
+                else:
+                        pass
       
 
     
