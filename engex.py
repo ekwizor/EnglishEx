@@ -144,6 +144,7 @@ if submitted:
         st.write('Генерация завершена')
 
         data=df.sample(num, ignore_index=True)
+        st.dataframe(data)
         
         #@st.cache_data
         
