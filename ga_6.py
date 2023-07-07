@@ -179,6 +179,7 @@ def get_text():
 if __name__ == '__main__':
         st.title('Генератор упражнений по английскому')
         get_text()
+        show_ex(gen_ex)
 
 
 
