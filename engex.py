@@ -167,9 +167,9 @@ if submitted:
                         if a=='':
                                 pass
                         elif a.lower() == answ.lower():
-                                st.success('Success!', icon="✅")      
+                                form.success('Success!', icon="✅")      
                         else:
-                                st.error('Error', icon="🚨")
+                                form.error('Error', icon="🚨")
                         
                                       
                         st.write(answ)
