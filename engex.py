@@ -164,7 +164,7 @@ if submitted:
                         st.write(words)
                         st.write(f'First letter: {answ[0]}')
                         st.write(f'Last letter: {answ[-1]}')
-                        st.session_state.i==''
+
                         a = st.text_input('Input your answer:', key=f'{i}')
                         if a == '':
                                 pass
