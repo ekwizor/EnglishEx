@@ -134,7 +134,7 @@ def gen_ex(text, num):
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
 
-        for i, row in data.iterrows():
+        for i, row in df.iterrows():
                 sentence = row['sentences']
                 odj = row['word']
                 task = row['task']
