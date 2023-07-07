@@ -45,7 +45,6 @@ def show_ex(df, num):
                                 st.success('Success!', icon="✅")      
                         else:
                                 st.error('Error', icon="🚨")
-                        
                                       
                         st.write(answ)
                 else:
@@ -169,7 +168,7 @@ def gen_ex(text, num):
         df = df.dropna()
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
-        show_ex(df, num)
+        return df, num
 
 def get_text():
         text = st.text_area('Input your text.')
@@ -180,6 +179,7 @@ def get_text():
 if __name__ == '__main__':
         st.title('Генератор упражнений по английскому')
         get_text()
+        show_ex(get_text())
 
 
 
