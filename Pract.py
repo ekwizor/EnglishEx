@@ -197,7 +197,7 @@ def main(text, num):
                     for j, opt in enumerate(option):
                         st.write(f'{j + 1}. {opt}')
         
-                    user_answer = st.selectbox('Выберите правильное предложение:', ['', *option])
+                    user_answer = st.selectbox(f'Выберите правильное предложение {i}:', ['', *option])
                     check_button = form.form_submit_button(f'Проверить {i}')
         
                     if check_button:
