@@ -184,3 +184,10 @@ def gen_ex(text, num):
         # Вывод результатов
         st.subheader('Результаты')
         st.write(df)
+
+
+if __name__ == '__main__':
+    text = st.text_area("Введите текст:")
+    num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
+    if st.button("Сгенерировать"):
+        gen_ex(text, num)
