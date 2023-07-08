@@ -216,6 +216,6 @@ def main(text, num):
 if __name__ == '__main__':
     
     st.title("Генератор упражнений по английскому")
-    text = st.text_area("Введите текст:")
+    text = st.text_area("Введите текст:", key="text_area")
     num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
     main(text, num)
