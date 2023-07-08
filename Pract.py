@@ -141,7 +141,7 @@ def gen_ex(text, num):
 def main(text, num):
 
     if 'df' not in st.session_state:
-    st.session_state.df = pd.DataFrame()
+        st.session_state.df = pd.DataFrame()
 
     if st.button("Сгенерировать"):
         st.session_state.df = gen_ex(text, num)
