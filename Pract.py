@@ -140,8 +140,6 @@ def gen_ex(text, num):
 
 def main(text, num):
 
-
-
     df = pd.DataFrame()  # Инициализация пустого DataFrame
 
     if st.button("Сгенерировать"):
@@ -207,7 +205,7 @@ def main(text, num):
                         else:
                             st.error('Неправильный ответ!')
     
-                form.form_submit_button("Проверить все ответы")
+        form.form_submit_button("Проверить все ответы")
 
 
 if __name__ == '__main__':
