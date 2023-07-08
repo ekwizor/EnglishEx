@@ -1,68 +1,56 @@
 import streamlit as st
+import re
+import random
 
-tasks = [ 
-    {'sentence': 'THE BUZZ IN THE STREET _____ like the humming of flies.',
-     'options' : [['was', 'is']], 
-     'answers' : ['was'],
-     'result'  : [''],
-     'total'   : 0
-    },
+def generate_exercise(sentence):
+    words = sentence.split()
+    num_words = len(words)
     
-    {'sentence': 'Photographers _____ massed behind barriers patrolled by police, their long-snouted cameras poised, their breath rising like steam.',
-     'options' : [['stood', 'were standing']], 
-     'answers' : ['were standing'],
-     'result'  : [''],
-     'total'   : 0
-    },
+    # Генерируем индекс пропущенного слова (случайное число между 1 и предпоследним словом)
+    missing_word_index = random.randint(1, num_words - 2)
     
-    {'sentence': 'Snow _____ steadily on to hats and shoulders; gloved fingers _____ lenses clear.',
-     'options' : [['fell', 'had fallen'], ['wiped','were wiping']], 
-     'answers' : ['fell', 'were wiping'],
-     'result'  : ['', ''],
-     'total'   : 0
-    },
+    # Сохраняем пропущенное слово
+    missing_word = words[missing_word_index]
     
-    {'sentence': 'From time to time there _____ outbreaks of desultory clicking, as the watchers _____ the waiting time by snapping the white canvas tent in the middle of the road, the entrance to the tall red-brick apartment block behind it, and the balcony on the top floor from which the body _____.',
-     'options' : [['came', 'come'], ['filled', 'had filled'], ['had fallen', 'was falling']],
-     'answers' : ['came', 'filled', 'had fallen'],
-     'result'  : ['', '', ''],
-     'total'   : 0
-    }
-]
+    # Заменяем пропущенное слово символами подчеркивания
+    words[missing_word_index] = '______'
     
-st.header('Генератор упражнений по английскому')
-st.subheader('Вставьте текст для создания упражнения')
+    # Формируем упражнение
+    exercise = ' '.join(words)
+    
+    return exercise, missing_word
 
-st.text_area('nolabel', label_visibility="hidden")
+# Настройка внешнего вида Streamlit
+st.set_page_config(page_title='English Exercise Generator')
 
-'---'
+# Заголовок приложения
+st.title('English Exercise Generator')
 
-st.subheader('Выберите правильные варианты пропущенных слов:')
+# Получение текста от пользователя
+text = st.text_area('Введите текст для генерации упражнений', height=300)
 
-for task in tasks:
-    col1, col2 = st.columns(2)
-    with col1:
-        st.write('')
-        st.write(str(task['sentence']))
-        
-    with col2:
-        for i in range(len(task['options'])):
-            option = task['options'][i]
-            task['result'][i] = st.selectbox('nolabel', 
-                                             ['–––'] + option, 
-                                             label_visibility="hidden")
-            if task['result'][i] == '–––':
-                pass
-            elif task['result'][i] == task['answers'][i]:
-                st.success('', icon="✅")
-            else:
-                st.error('', icon="😟")
-    task['total'] = task['result'] == task['answers']    
-    '---'        
+# Генерация упражнений при нажатии кнопки
+if st.button('Сгенерировать упражнение'):
+    # Разбиваем текст на предложения
+    sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', text)
+    
+    # Генерируем случайное предложение из введенного текста
+    random_sentence = random.choice(sentences)
+    
+    # Генерируем упражнение
+    exercise, missing_word = generate_exercise(random_sentence)
+    
+    # Отображение сгенерированного упражнения
+    st.header('Упражнение:')
+    st.write(exercise)
+    
+    # Получение ответа от пользователя
+    user_answer = st.text_input('Введите пропущенное слово')
+    
+    # Проверка ответа пользователя
+    if user_answer.lower() == missing_word.lower():
+        st.write('Верно! Ответ:', missing_word)
+    else:
+        st.write('Неверно! Правильный ответ:', missing_word)
 
-total_sum = sum(task['total'] for task in tasks)
-
-if total_sum == len(tasks):
-    st.success('Успех!')
-    st.balloons()
     
