@@ -141,10 +141,17 @@ def gen_ex(text, num):
 def main(text, num):
 
 
-    if st.button("Сгенерировать"):
-        df = gen_ex(text, num)
 
-    form = st.form(key='exercise_form')
+    df = pd.DataFrame()  # Инициализация пустого DataFrame
+
+    st.title("Генератор упражнений по английскому")
+    text = st.text_area("Введите текст:")
+    num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
+    if st.button("Сгенерировать"):
+        df = gen_ex(text, num)  # Сохранение сгенерированного DataFrame
+
+    if not df.empty:  # Проверка наличия DataFrame перед использованием
+        form = st.form(key='exercise_form')
 
     for i, row in df.iterrows():
         with form:
