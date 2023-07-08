@@ -134,36 +134,44 @@ def gen_ex(text, num):
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
 
+        form = st.form(key='my_form')
+
         for i, row in df.iterrows():
+            with form:
                 sentence = row['sentences']
                 odj = row['word']
                 task = row['task']
                 option = row['options']
                 answ = row['answer']
-                
+        
                 st.subheader(f'{i+1} упражнение')
-                
+        
                 if task == 'select_word':
-                        st.write(sentence)
-                elif task =='missing_word':
-                        words = sentence.split()
-                        ind = words.index(answ)
-                        words = sentence.replace(words[ind], '_'*len(words[ind]))
-                        st.write(words)
-                
-                        a = st.text_input('Input your answer:', key=f'input{i}')
-                        b = st.button('Check', key=f'button{i}')
-                        if b:
-                                if a=='':
-                                        pass
-                                elif a.lower() == answ.lower():
-                                        st.success('Success!', icon="✅")      
-                                else:
-                                        st.error('Error', icon="🚨")
-                                      
-                        st.write(answ)
+                    st.write(sentence)
+                elif task == 'missing_word':
+                    words = sentence.split()
+                    ind = words.index(answ)
+                    words = sentence.replace(words[ind], '_' * len(words[ind]))
+                    st.write(words)
+        
+                    a = st.text_input('Введите ваш ответ:', key=f'{i}')
+                    b = st.button('Проверить', key=f'button{i}')
+        
+                    if b:
+                        if a == '':
+                            pass
+                        elif a.lower() == answ.lower():
+                            st.success('Верно!', icon="✅")
+                        else:
+                            st.error('Ошибка', icon="🚨")
+        
+                    st.write(answ)
                 else:
-                        pass
+                    pass
+        
+        submit_button = form.form_submit_button(label='Отправить')
+
+
 
 
 def main():
