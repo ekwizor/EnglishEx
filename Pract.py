@@ -154,7 +154,7 @@ def gen_ex(text, num):
                     words = sentence.replace(words[ind], '_' * len(words[ind]))
                     st.write(words)
         
-                    a = st.text_input('Введите ваш ответ:', key=f'{i}')
+                    a = st.text_input('Введите ваш ответ:', key=f'text{i}')
                     b = st.button('Проверить', key=f'button{i}')
         
                     if b:
@@ -169,7 +169,7 @@ def gen_ex(text, num):
                 else:
                     pass
         
-        submit_button = form.form_submit_button(label='Отправить')
+                submit_button = form.form_submit_button(label='Отправить')
 
 
 
