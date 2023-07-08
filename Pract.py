@@ -169,7 +169,7 @@ def main(text, num):
                         st.write(missing_word_sentence)
         
                         user_answer = st.text_input('Введите ваш ответ:', key=f'{i}')
-                        check_button = form.form_submit_button('Проверить')
+                        check_button = form.form_submit_button(f'Проверить {i}')
         
                         if check_button:
                             if user_answer.lower() == answ.lower():
@@ -184,7 +184,7 @@ def main(text, num):
         
                     st.write(answ)
                     user_answer = st.selectbox('Выберите правильный ответ:', ['', *option])
-                    check_button = form.form_submit_button('Проверить')
+                    check_button = form.form_submit_button(f'Проверить {i}')
         
                     if check_button:
                         if user_answer.lower() == answ.lower():
@@ -198,7 +198,7 @@ def main(text, num):
                         st.write(f'{j + 1}. {opt}')
         
                     user_answer = st.selectbox('Выберите правильное предложение:', ['', *option])
-                    check_button = form.form_submit_button('Проверить')
+                    check_button = form.form_submit_button(f'Проверить {i}')
         
                     if check_button:
                         if user_answer.lower() == answ.lower():
