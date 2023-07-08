@@ -151,7 +151,7 @@ def gen_ex(text, num):
                         words = sentence.replace(words[ind], '_'*len(words[ind]))
                         st.write(words)
                 
-                        a = st.text_input('Input your answer:', key=f'{i}')
+                        a = st.text_input('Input your answer:', key=f'input{i}')
                         b = st.button('Check', key=f'button{i}')
                         if b:
                                 if a=='':
