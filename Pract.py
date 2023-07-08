@@ -207,7 +207,7 @@ def main(text, num):
                         else:
                             st.error('Неправильный ответ!')
     
-        form.form_submit_button("Проверить все ответы")
+                form.form_submit_button("Проверить все ответы")
 
 
 if __name__ == '__main__':
