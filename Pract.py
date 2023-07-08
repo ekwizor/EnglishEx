@@ -148,6 +148,9 @@ def main(text, num):
     if not df.empty:  # Проверка наличия DataFrame перед использованием
         form = st.form(key='exercise_form')
 
+        if form.form_submit_button("Проверить все ответы"):
+            pass
+
         for i, row in df.iterrows():
             with form:
                 sentence = row['sentences']
@@ -183,7 +186,7 @@ def main(text, num):
                     st.write(f'Варианты ответов: {option_str}')
         
                     st.write(answ)
-                    user_answer = st.selectbox('Выберите правильный ответ:', ['', *option])
+                    user_answer = st.selectbox(f'Выберите правильный ответ {i}:', ['', *option])
                     check_button = form.form_submit_button(f'Проверить {i}')
         
                     if check_button:
@@ -205,9 +208,6 @@ def main(text, num):
                             st.success('Правильный ответ!')
                         else:
                             st.error('Неправильный ответ!')
-        
-        if form.form_submit_button("Проверить все ответы"):
-            pass
             
 
 
