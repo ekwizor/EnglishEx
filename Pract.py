@@ -136,6 +136,7 @@ def gen_ex(text, num):
     df = df.sample(num)
     my_bar.progress(100, text='Готово')
     st.write('Генерация завершена')
+    return df
 
 def main():
 
@@ -143,7 +144,7 @@ def main():
     text = st.text_area("Введите текст:")
     num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
     if st.button("Сгенерировать"):
-        gen_ex(text, num)
+        df = gen_ex(text, num)
 
     form = st.form(key='exercise_form')
 
