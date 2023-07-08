@@ -162,29 +162,30 @@ def main(text, num):
                     st.write(sentence)
                 elif task == 'missing_word':
                     words = sentence.split()
-                    ind = words.index(answ)
-                    words[ind] = '_' * len(words[ind])
-                    missing_word_sentence = ' '.join(words)
-                    st.write(missing_word_sentence)
-    
-                    user_answer = st.text_input('Введите ваш ответ:', key=f'{i}')
-                    check_button = form.form_submit_button('Проверить')
-    
-                    if check_button:
-                        if user_answer.lower() == answ.lower():
-                            st.success('Верно!', icon="✅")
-                        else:
-                            st.error('Ошибка', icon="🚨")
-                        st.write(sentence)
+                    if answ in words:
+                        ind = words.index(answ)
+                        words[ind] = '_' * len(words[ind])
+                        missing_word_sentence = ' '.join(words)
+                        st.write(missing_word_sentence)
+        
+                        user_answer = st.text_input('Введите ваш ответ:', key=f'{i}')
+                        check_button = form.form_submit_button('Проверить')
+        
+                        if check_button:
+                            if user_answer.lower() == answ.lower():
+                                st.success('Верно!', icon="✅")
+                            else:
+                                st.error('Ошибка', icon="🚨")
+                            st.write(sentence)
                 elif task == 'phrases':
                     st.write(sentence)
                     option_str = ', '.join(option)
                     st.write(f'Варианты ответов: {option_str}')
-    
+        
                     st.write(answ)
                     user_answer = st.selectbox('Выберите правильный ответ:', ['', *option])
                     check_button = form.form_submit_button('Проверить')
-    
+        
                     if check_button:
                         if user_answer.lower() == answ.lower():
                             st.success('Правильный ответ!')
@@ -195,16 +196,16 @@ def main(text, num):
                     st.write('Варианты предложений:')
                     for j, opt in enumerate(option):
                         st.write(f'{j + 1}. {opt}')
-    
+        
                     user_answer = st.selectbox('Выберите правильное предложение:', ['', *option])
                     check_button = form.form_submit_button('Проверить')
-    
+        
                     if check_button:
                         if user_answer.lower() == answ.lower():
                             st.success('Правильный ответ!')
                         else:
                             st.error('Неправильный ответ!')
-    
+        
         if form.form_submit_button("Проверить все ответы"):
             pass
             
