@@ -138,11 +138,9 @@ def gen_ex(text, num):
     st.write('Генерация завершена')
     return df
 
-def main():
+def main(text, num):
 
-    st.title("Генератор упражнений по английскому")
-    text = st.text_area("Введите текст:")
-    num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
+
     if st.button("Сгенерировать"):
         df = gen_ex(text, num)
 
@@ -194,4 +192,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    
+    st.title("Генератор упражнений по английскому")
+    text = st.text_area("Введите текст:")
+    num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
+    main(text, num)
