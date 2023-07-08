@@ -134,8 +134,6 @@ def gen_ex(text, num):
         my_bar.progress(100, text='Готово')
         st.write('Генерация завершена')
 
-        form = st.form(key='my_form')
-
         for i, row in df.iterrows():
             with form:
                 sentence = row['sentences']
@@ -151,16 +149,15 @@ def gen_ex(text, num):
                 elif task == 'missing_word':
                     words = sentence.split()
                     ind = words.index(answ)
-                    words = sentence.replace(words[ind], '_' * len(words[ind]))
-                    st.write(words)
+                    words[ind] = '_' * len(words[ind])
+                    missing_word_sentence = ' '.join(words)
+                    st.write(missing_word_sentence)
         
-                    a = st.text_input('Введите ваш ответ:', key=f'text{i}')
-                    b = st.button('Проверить', key=f'button{i}')
+                    user_answer = st.text_input('Введите ваш ответ:', key=f'{i}')
+                    check_button = st.button('Проверить', key=f'button{i}')
         
-                    if b:
-                        if a == '':
-                            pass
-                        elif a.lower() == answ.lower():
+                    if check_button:
+                        if user_answer.lower() == answ.lower():
                             st.success('Верно!', icon="✅")
                         else:
                             st.error('Ошибка', icon="🚨")
@@ -169,7 +166,19 @@ def gen_ex(text, num):
                 else:
                     pass
         
-        submit_button = form.form_submit_button(label='Отправить', key='butt')
+        submit_button = form.form_submit_button(label='Отправить')
+        
+        if submit_button:
+            # Действия при отправке формы
+            for i, row in df.iterrows():
+                user_answer = st.session_state[f'{i}']
+                # Дальнейшие действия с данными
+                # Например, сохранение ответов в DataFrame
+                df.loc[i, 'user_answer'] = user_answer
+        
+            # Вывод результатов
+            st.subheader('Результаты')
+            st.write(df)
 
 
 
