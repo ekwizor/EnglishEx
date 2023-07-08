@@ -173,22 +173,37 @@ def main(text, num):
                         st.success('Верно!', icon="✅")
                     else:
                         st.error('Ошибка', icon="🚨")
+                    st.write(sentence)
+            elif task == 'phrases':
+                st.write(sentence)
+                option_str = ', '.join(option)
+                st.write(f'Варианты ответов: {option_str}')
 
                 st.write(answ)
-            else:
-                pass
+                user_answer = st.selectbox('Выберите правильный ответ:', ['', *option], key=f'{i}')
+                check_button = st.button('Проверить', key=f'button{i}')
 
-    if st.form_submit_button(label='Отправить'):
-        for i, row in df.iterrows():
-            user_answer = st.session_state[f'{i}']
-            # Дальнейшие действия с данными
-            # Например, сохранение ответов в DataFrame
-            df.loc[i, 'user_answer'] = user_answer
+                if check_button:
+                    if user_answer.lower() == answ.lower():
+                        st.success('Правильный ответ!')
+                    else:
+                        st.error('Неправильный ответ!')
+            elif task == 'select_sent':
+                st.write(sentence)
+                st.write('Варианты предложений:')
+                for j, opt in enumerate(option):
+                    st.write(f'{j + 1}. {opt}')
 
-        # Вывод результатов
-        st.subheader('Результаты')
-        st.write(df)
+                user_answer = st.selectbox('Выберите правильное предложение:', ['', *option], key=f'{i}')
+                check_button = st.button('Проверить', key=f'button{i}')
 
+                if check_button:
+                    if user_answer.lower() == answ.lower():
+                        st.success('Правильный ответ!')
+                    else:
+                        st.error('Неправильный ответ!')
+
+    form.form_submit_button("Проверить все ответы")
 
 
 if __name__ == '__main__':
