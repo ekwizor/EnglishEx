@@ -137,6 +137,14 @@ def gen_ex(text, num):
     my_bar.progress(100, text='Готово')
     st.write('Генерация завершена')
 
+def main():
+
+    st.title("Генератор упражнений по английскому")
+    text = st.text_area("Введите текст:")
+    num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
+    if st.button("Сгенерировать"):
+        gen_ex(text, num)
+
     form = st.form(key='exercise_form')
 
     for i, row in df.iterrows():
@@ -171,10 +179,7 @@ def gen_ex(text, num):
             else:
                 pass
 
-    submit_button = form.form_submit_button(label='Отправить')
-
-    if submit_button:
-        # Действия при отправке формы
+    if st.form_submit_button(label='Отправить'):
         for i, row in df.iterrows():
             user_answer = st.session_state[f'{i}']
             # Дальнейшие действия с данными
@@ -186,8 +191,6 @@ def gen_ex(text, num):
         st.write(df)
 
 
+
 if __name__ == '__main__':
-    text = st.text_area("Введите текст:")
-    num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
-    if st.button("Сгенерировать"):
-        gen_ex(text, num)
+    main()
