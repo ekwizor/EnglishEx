@@ -169,7 +169,7 @@ def gen_ex(text, num):
                 else:
                     pass
         
-                submit_button = form.form_submit_button(label='Отправить')
+                submit_button = form.form_submit_button(label='Отправить', key='butt{i}')
 
 
 
