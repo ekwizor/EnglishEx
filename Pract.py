@@ -144,9 +144,6 @@ def main(text, num):
 
     df = pd.DataFrame()  # Инициализация пустого DataFrame
 
-    st.title("Генератор упражнений по английскому")
-    text = st.text_area("Введите текст:")
-    num = st.number_input("Введите количество упражнений:", min_value=1, step=1)
     if st.button("Сгенерировать"):
         df = gen_ex(text, num)  # Сохранение сгенерированного DataFrame
 
