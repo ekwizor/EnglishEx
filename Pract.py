@@ -150,14 +150,16 @@ def gen_ex(text, num):
                         ind = words.index(answ)
                         words = sentence.replace(words[ind], '_'*len(words[ind]))
                         st.write(words)
-                        
+                
                         a = st.text_input('Input your answer:', key=f'{i}')
-                        if a=='':
-                                pass
-                        elif a.lower() == answ.lower():
-                                st.success('Success!', icon="✅")      
-                        else:
-                                st.error('Error', icon="🚨")
+                        b = st.button('Check')
+                        if b:
+                                if a=='':
+                                        pass
+                                elif a.lower() == answ.lower():
+                                        st.success('Success!', icon="✅")      
+                                else:
+                                        st.error('Error', icon="🚨")
                                       
                         st.write(answ)
                 else:
