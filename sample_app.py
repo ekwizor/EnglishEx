@@ -1,24 +1,37 @@
 import streamlit as st
 import random
 
-# Список упражнений
 exercises = [
-    "The * is shining brightly in the sky.",
-    "She * to the store to buy some milk.",
-    "I like to * books in my free time.",
-    "My cat loves to * with a ball of yarn.",
-    "He * his homework before going to bed."
+    {
+        "sentence": "The * is shining brightly in the sky.",
+        "answer": "sun"
+    },
+    {
+        "sentence": "She * to the store to buy some milk.",
+        "answer": "went"
+    },
+    {
+        "sentence": "I like to * books in my free time.",
+        "answer": "read"
+    },
+    {
+        "sentence": "My cat loves to * with a ball of yarn.",
+        "answer": "play"
+    },
+    {
+        "sentence": "He * his homework before going to bed.",
+        "answer": "completes"
+    }
 ]
 
 def generate_exercise():
     exercise = random.choice(exercises)
-    return exercise.replace("*", "______")
+    return exercise["sentence"]
 
 def check_answer(exercise, user_answer):
-    answer = exercise.replace("______", "*")
-    return user_answer.lower() == answer.lower()
+    exercise_answer = next((item for item in exercises if item["sentence"] == exercise), None)
+    return user_answer.lower() == exercise_answer["answer"].lower() if exercise_answer else False
 
-# Основной код Streamlit
 def main():
     st.title("English Exercise Generator")
     st.write("Введите правильное слово для каждого упражнения.")
@@ -33,9 +46,7 @@ def main():
             st.write("Неправильно! Попробуйте еще раз.")
 
     st.write("Упражнение:")
-    st.write(exercise)
-
+    st.write(exercise.replace("*", "______"))
 
 if __name__ == "__main__":
     main()
-    
