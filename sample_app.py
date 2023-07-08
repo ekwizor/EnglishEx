@@ -1,56 +1,41 @@
 import streamlit as st
-import re
 import random
 
-def generate_exercise(sentence):
-    words = sentence.split()
-    num_words = len(words)
-    
-    # Генерируем индекс пропущенного слова (случайное число между 1 и предпоследним словом)
-    missing_word_index = random.randint(1, num_words - 2)
-    
-    # Сохраняем пропущенное слово
-    missing_word = words[missing_word_index]
-    
-    # Заменяем пропущенное слово символами подчеркивания
-    words[missing_word_index] = '______'
-    
-    # Формируем упражнение
-    exercise = ' '.join(words)
-    
-    return exercise, missing_word
+# Список упражнений
+exercises = [
+    "The * is shining brightly in the sky.",
+    "She * to the store to buy some milk.",
+    "I like to * books in my free time.",
+    "My cat loves to * with a ball of yarn.",
+    "He * his homework before going to bed."
+]
 
-# Настройка внешнего вида Streamlit
-st.set_page_config(page_title='English Exercise Generator')
+def generate_exercise():
+    exercise = random.choice(exercises)
+    return exercise.replace("*", "______")
 
-# Заголовок приложения
-st.title('English Exercise Generator')
+def check_answer(exercise, user_answer):
+    answer = exercise.replace("______", "*")
+    return user_answer.lower() == answer.lower()
 
-# Получение текста от пользователя
-text = st.text_area('Введите текст для генерации упражнений', height=300)
+# Основной код Streamlit
+def main():
+    st.title("English Exercise Generator")
+    st.write("Введите правильное слово для каждого упражнения.")
 
-# Генерация упражнений при нажатии кнопки
-if st.button('Сгенерировать упражнение'):
-    # Разбиваем текст на предложения
-    sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', text)
-    
-    # Генерируем случайное предложение из введенного текста
-    random_sentence = random.choice(sentences)
-    
-    # Генерируем упражнение
-    exercise, missing_word = generate_exercise(random_sentence)
-    
-    # Отображение сгенерированного упражнения
-    st.header('Упражнение:')
+    exercise = generate_exercise()
+    user_answer = st.text_input("Заполните пропущенное слово:", value="", key="exercise_input")
+
+    if st.button("Проверить"):
+        if check_answer(exercise, user_answer):
+            st.write("Правильно!")
+        else:
+            st.write("Неправильно! Попробуйте еще раз.")
+
+    st.write("Упражнение:")
     st.write(exercise)
-    
-    # Получение ответа от пользователя
-    user_answer = st.text_input('Введите пропущенное слово')
-    
-    # Проверка ответа пользователя
-    if user_answer.lower() == missing_word.lower():
-        st.write('Верно! Ответ:', missing_word)
-    else:
-        st.write('Неверно! Правильный ответ:', missing_word)
 
+
+if __name__ == "__main__":
+    main()
     
