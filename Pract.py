@@ -152,7 +152,7 @@ def gen_ex(text, num):
                         st.write(words)
                 
                         a = st.text_input('Input your answer:', key=f'{i}')
-                        b = st.button('Check', key=f'{i}')
+                        b = st.button('Check', key=f'button{i}')
                         if b:
                                 if a=='':
                                         pass
