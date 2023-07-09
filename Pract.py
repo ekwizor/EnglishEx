@@ -164,7 +164,7 @@ def main(text, num):
             
             if task == 'select_word':
                 st.write(sentence)
-                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'word_{i}')
+                user_answer = st.selectbox(f'Выберите правильное слово:', [*option], key=f'word_{i}')
                 check_button = st.button(f'Проверить {i+1}')
     
                 if check_button:
