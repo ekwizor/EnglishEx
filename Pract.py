@@ -159,7 +159,7 @@ def main(text, num):
             task = row['task']
             option = row['options']
             answ = row['answer']
-            option = option.append(answ)
+            option.extend(answ)
             
             if task == 'select_word':
                 st.write(sentence)
