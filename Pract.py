@@ -193,7 +193,7 @@ def main(text, num):
                 st.write(sentence)
     
                 st.write(answ)
-                user_answer = st.selectbox(f'Выберите правильный ответ {i+1}:', [*option] , key=f'phrase_{i}')
+                user_answer = st.selectbox(f'Выберите правильный ответ:', [*option] , key=f'phrase_{i}')
                 check_button = st.button(f'Проверить {i+1}')
     
                 if check_button:
@@ -204,7 +204,7 @@ def main(text, num):
             elif task == 'select_sent':
                 st.write(sentence)
     
-                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'sent_{i}')
+                user_answer = st.selectbox(f'Выберите правильное предложение:', [*option], key=f'sent_{i}')
                 check_button = st.button(f'Проверить {i+1}')
     
                 if check_button:
