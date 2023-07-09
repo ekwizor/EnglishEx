@@ -127,7 +127,7 @@ def gen_ex(text, num):
     for i in range(len(df)):
         if df.loc[i, 'task'] == 'select_sent':
             try:
-                s = sentgen(df.loc[i])
+                _, s = sentgen(df.loc[i])
                 df.loc[i,'word'] = list(s)[0]
                 df.at[i,'options'] = list(s)[1]
                 df.loc[i,'answer'] = list(s)[0]
