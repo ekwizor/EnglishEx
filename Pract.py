@@ -176,7 +176,7 @@ def main(text, num):
                 words = sentence.split()
                 if answ in words:
                     ind = words.index(answ)
-                    words[ind] = '_' * len(words[ind])
+                    words[ind][1:-1] = '_' * len(words[ind])
                     missing_word_sentence = ' '.join(words)
                     st.write(missing_word_sentence)
     
