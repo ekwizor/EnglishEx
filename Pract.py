@@ -179,7 +179,7 @@ def main(text, num):
                     words[ind] = '_' * len(words[ind])
                     missing_word_sentence = ' '.join(words)
                     st.write(missing_word_sentence)
-                    st.write(f'First letter: {answ][0]}')
+                    st.write(f'First letter: {answ[0]}')
                     st.write(f'Last letter: {answ[-1]}')
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
