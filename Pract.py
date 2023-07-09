@@ -146,62 +146,62 @@ def main(text, num):
         st.session_state.df = df
         if not df.empty:  # Проверка наличия DataFrame перед использованием
             df = df.reset_index()
-
-            st.subheader(f'{i+1} упражнение')
-
-            sentence = row['sentences']
-            odj = row['word']
-            task = row['task']
-            option = row['options']
-            answ = row['answer']
-            
-            if task == 'select_word':
-                st.write(sentence)
-            elif task == 'missing_word':
-                words = sentence.split()
-                if answ in words:
-                    ind = words.index(answ)
-                    words[ind] = '_' * len(words[ind])
-                    missing_word_sentence = ' '.join(words)
-                    st.write(missing_word_sentence)
+            for i, row in df.iterrows():
+                st.subheader(f'{i+1} упражнение')
     
-                    user_answer = st.text_input('Введите ваш ответ:', key=f'text_input_{i+1}')
+                sentence = row['sentences']
+                odj = row['word']
+                task = row['task']
+                option = row['options']
+                answ = row['answer']
+                
+                if task == 'select_word':
+                    st.write(sentence)
+                elif task == 'missing_word':
+                    words = sentence.split()
+                    if answ in words:
+                        ind = words.index(answ)
+                        words[ind] = '_' * len(words[ind])
+                        missing_word_sentence = ' '.join(words)
+                        st.write(missing_word_sentence)
+        
+                        user_answer = st.text_input('Введите ваш ответ:', key=f'text_input_{i+1}')
+                        check_button = st.button(f'Проверить {i+1} упражнение')
+        
+                        if check_button:
+                            if user_answer.lower() == answ.lower():
+                                st.success('Верно!', icon="✅")
+                            else:
+                                st.error('Ошибка', icon="🚨")
+                            st.write(sentence)
+                elif task == 'phrases':
+                    st.write(sentence)
+                    option_str = ', '.join(option)
+                    st.write(f'Варианты ответов: {option_str}')
+        
+                    st.write(answ)
+                    user_answer = st.selectbox(f'Выберите правильный ответ {i+1}:', [*option], key=f'selectbox_{i+1}')
                     check_button = st.button(f'Проверить {i+1} упражнение')
-    
+        
                     if check_button:
                         if user_answer.lower() == answ.lower():
-                            st.success('Верно!', icon="✅")
+                            st.success('Правильный ответ!')
                         else:
-                            st.error('Ошибка', icon="🚨")
-                        st.write(sentence)
-            elif task == 'phrases':
-                st.write(sentence)
-                option_str = ', '.join(option)
-                st.write(f'Варианты ответов: {option_str}')
-    
-                st.write(answ)
-                user_answer = st.selectbox(f'Выберите правильный ответ {i+1}:', [*option], key=f'selectbox_{i+1}')
-                check_button = st.button(f'Проверить {i+1} упражнение')
-    
-                if check_button:
-                    if user_answer.lower() == answ.lower():
-                        st.success('Правильный ответ!')
-                    else:
-                        st.error('Неправильный ответ!')
-            elif task == 'select_sent':
-                st.write(sentence)
-                st.write('Варианты предложений:')
-                for j, opt in enumerate(option):
-                    st.write(f'{j + 1}. {opt}')
-    
-                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'select_{i}')
-                check_button = st.button(f'Проверить {i+1} упражнение')
-    
-                if check_button:
-                    if user_answer.lower() == answ.lower():
-                        st.success('Правильный ответ!')
-                    else:
-                        st.error('Неправильный ответ!')
+                            st.error('Неправильный ответ!')
+                elif task == 'select_sent':
+                    st.write(sentence)
+                    st.write('Варианты предложений:')
+                    for j, opt in enumerate(option):
+                        st.write(f'{j + 1}. {opt}')
+        
+                    user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'select_{i}')
+                    check_button = st.button(f'Проверить {i+1} упражнение')
+        
+                    if check_button:
+                        if user_answer.lower() == answ.lower():
+                            st.success('Правильный ответ!')
+                        else:
+                            st.error('Неправильный ответ!')
             
 
 
