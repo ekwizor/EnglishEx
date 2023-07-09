@@ -149,7 +149,8 @@ def main(text, num):
     df = st.session_state.df
     df = df.reset_index()
 
-    if not df.empty:  # Проверка наличия DataFrame перед использованием
+    if not df.empty:
+        st.dataframe(df)
         for i, row in df.iterrows():
             st.subheader(f'{i+1} упражнение')
 
