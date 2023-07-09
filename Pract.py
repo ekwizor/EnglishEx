@@ -120,14 +120,14 @@ def gen_ex(text, num):
                     s.append(sent_2)
                     sent_3 = row['sentences'].replace(t[0], t[3])
                     s.append(sent_3)
-                return row['sentences'], list(set(s))
+                return row['sentences'], s
             except:
                 pass
 
     for i in range(len(df)):
         if df.loc[i, 'task'] == 'select_sent':
             try:
-                _, s = sentgen(df.loc[i])
+                s = sentgen(df.loc[i])
                 df.loc[i,'word'] = list(s)[0]
                 df.at[i,'options'] = list(s)[1]
                 df.loc[i,'answer'] = list(s)[0]
