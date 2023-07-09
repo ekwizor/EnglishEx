@@ -185,7 +185,7 @@ def main(text, num):
                 st.write(f'Варианты ответов: {option_str}')
     
                 st.write(answ)
-                user_answer = st.selectbox(f'Выберите правильный ответ {i}:', [*option], key=f'selectbox_{i+1}')
+                user_answer = st.selectbox(f'Выберите правильный ответ {i+1}:', [*option], key=f'selectbox_{i+1}')
                 check_button = st.button(f'Проверить {i+1} упражнение')
     
                 if check_button:
@@ -199,7 +199,7 @@ def main(text, num):
                 for j, opt in enumerate(option):
                     st.write(f'{j + 1}. {opt}')
     
-                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'sentence_{i+1}')
+                user_answer = st.selectbox(f'Выберите правильное предложение {i}:', ['', *option], key=f'{i}')
                 check_button = st.button(f'Проверить {i+1} упражнение')
     
                 if check_button:
