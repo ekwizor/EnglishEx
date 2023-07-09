@@ -169,7 +169,7 @@ def main(text, num):
                     missing_word_sentence = ' '.join(words)
                     st.write(missing_word_sentence)
     
-                    user_answer = st.text_input('Введите ваш ответ:', key=f'{i+1}')
+                    user_answer = st.text_input('Введите ваш ответ:', key=f'text_input_{i+1}')
                     check_button = st.button(f'Проверить {i+1} упражнение')
     
                     if check_button:
@@ -184,7 +184,7 @@ def main(text, num):
                 st.write(f'Варианты ответов: {option_str}')
     
                 st.write(answ)
-                user_answer = st.selectbox(f'Выберите правильный ответ {i}:', ['', *option], key=f'{i}')
+                user_answer = st.selectbox(f'Выберите правильный ответ {i}:', ['', *option], key=f'selectbox_{i+1}')
                 check_button = st.button(f'Проверить {i+1} упражнение')
     
                 if check_button:
