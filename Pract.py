@@ -177,8 +177,10 @@ def main(text, num):
                 if answ in words:
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
-                    missing_word_sentence = ' '.join(words[1:-1])
+                    missing_word_sentence = ' '.join(words)
                     st.write(missing_word_sentence)
+                    st.write(f'First letter: {words[ind][0]}')
+                    st.write(f'Last letter: {words[ind][-1]}')
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
                     check_button = st.button(f'Проверить', key=f'bmword{i}')
