@@ -112,7 +112,7 @@ def gen_ex(text, num):
                 x = np.random.choice(d)
                 t = [str(x), x._.inflect('VBP'), x._.inflect('VBG'), x._.inflect('VBD')]
                 s = []
-                s.append(row['word'])
+                #s.append(row['word'])
                 if t[0] in (row['sentences'].split(' ')):
                     sent_1 = row['sentences'].replace(t[0], t[1])
                     s.append(sent_1)
