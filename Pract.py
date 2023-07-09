@@ -120,7 +120,7 @@ def gen_ex(text, num):
                     s.append(sent_2)
                     sent_3 = row['sentences'].replace(t[0], t[3])
                     s.append(sent_3)
-                return row['sentences'], list(set(s))
+                return row['sentences'], s
             except:
                 pass
 
