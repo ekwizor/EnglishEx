@@ -147,7 +147,6 @@ def main(text, num):
         st.session_state.df = gen_ex(text, num)
     
     df = st.session_state.df
-    df = df.reset_index().dropna()
 
     if not df.empty:  # Проверка наличия DataFrame перед использованием
         for i, row in df.iterrows():
@@ -184,7 +183,7 @@ def main(text, num):
                 st.write(f'Варианты ответов: {option_str}')
     
                 st.write(answ)
-                user_answer = st.selectbox(f'Выберите правильный ответ {i}:', ['', *option], key=f'selectbox_{i+1}')
+                user_answer = st.selectbox(f'Выберите правильный ответ {i}:', [*option], key=f'selectbox_{i+1}')
                 check_button = st.button(f'Проверить {i+1} упражнение')
     
                 if check_button:
@@ -198,7 +197,7 @@ def main(text, num):
                 for j, opt in enumerate(option):
                     st.write(f'{j + 1}. {opt}')
     
-                user_answer = st.selectbox(f'Выберите правильное предложение {i}:', ['', *option], key=f'{i}')
+                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'sentence_{i+1}')
                 check_button = st.button(f'Проверить {i+1} упражнение')
     
                 if check_button:
