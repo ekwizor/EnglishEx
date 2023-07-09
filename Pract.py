@@ -147,8 +147,6 @@ def main(text, num):
         if not df.empty:  # Проверка наличия DataFrame перед использованием
             df = df.reset_index()
 
-    if not df.empty:  # Проверка наличия DataFrame перед использованием
-        for i, row in df.iterrows():
             st.subheader(f'{i+1} упражнение')
 
             sentence = row['sentences']
