@@ -185,7 +185,7 @@ def main(text, num):
                 st.write(f'Варианты ответов: {option_str}')
     
                 st.write(answ)
-                user_answer = st.selectbox(f'Выберите правильный ответ {i+1}:', [*option if answ not in *option else *option, answ] , key=f'phrase_{i}')
+                user_answer = st.selectbox(f'Выберите правильный ответ {i+1}:', [*option if answ not in option else *option, answ] , key=f'phrase_{i}')
                 check_button = st.button(f'Проверить {i+1}')
     
                 if check_button:
