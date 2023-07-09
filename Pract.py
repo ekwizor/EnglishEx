@@ -158,9 +158,7 @@ def main(text, num):
             odj = row['word']
             task = row['task']
             option = row['options']
-            
             answ = row['answer']
-
             option = option.append(answ)
             
             if task == 'select_word':
@@ -184,8 +182,6 @@ def main(text, num):
                         st.write(sentence)
             elif task == 'phrases':
                 st.write(sentence)
-                option_str = ', '.join(option)
-                st.write(f'Варианты ответов: {option_str}')
     
                 st.write(answ)
                 user_answer = st.selectbox(f'Выберите правильный ответ {i+1}:', [*option, answ] , key=f'phrase_{i}')
