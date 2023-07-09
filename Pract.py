@@ -141,13 +141,11 @@ def gen_ex(text, num):
 
 def main(text, num):
 
-    if 'df' not in st.session_state:
-        st.session_state.df = pd.DataFrame()
-
     if st.button("Сгенерировать"):
         df = gen_ex(text, num)
         st.session_state.df = df
-        df = df.reset_index()
+        if not df.empty:  # Проверка наличия DataFrame перед использованием
+            df = df.reset_index()
 
     if not df.empty:  # Проверка наличия DataFrame перед использованием
         for i, row in df.iterrows():
