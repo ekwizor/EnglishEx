@@ -165,7 +165,7 @@ def main(text, num):
             if task == 'select_word':
                 st.write(sentence)
                 user_answer = st.selectbox(f'Выберите правильное слово:', [*option], key=f'word_{i}')
-                check_button = st.button(f'Проверить {i+1}')
+                check_button = st.button(f'Проверить')
     
                 if check_button:
                     if user_answer.lower() == answ.lower():
@@ -181,7 +181,7 @@ def main(text, num):
                     st.write(missing_word_sentence)
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
-                    check_button = st.button(f'Проверить {i+1}')
+                    check_button = st.button(f'Проверить')
     
                     if check_button:
                         if user_answer.lower() == answ.lower():
@@ -194,7 +194,7 @@ def main(text, num):
     
                 st.write(answ)
                 user_answer = st.selectbox(f'Выберите правильный ответ:', [*option] , key=f'phrase_{i}')
-                check_button = st.button(f'Проверить {i+1}')
+                check_button = st.button(f'Проверить')
     
                 if check_button:
                     if user_answer.lower() == answ.lower():
@@ -205,7 +205,7 @@ def main(text, num):
                 st.write(sentence)
     
                 user_answer = st.selectbox(f'Выберите правильное предложение:', [*option], key=f'sent_{i}')
-                check_button = st.button(f'Проверить {i+1}')
+                check_button = st.button(f'Проверить')
     
                 if check_button:
                     if user_answer.lower() == answ.lower():
