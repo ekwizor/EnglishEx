@@ -194,9 +194,6 @@ def main(text, num):
                         st.error('Неправильный ответ!')
             elif task == 'select_sent':
                 st.write(sentence)
-                st.write('Варианты предложений:')
-                for j, opt in enumerate(option):
-                    st.write(f'{j + 1}. {opt}')
     
                 user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', ['', *option], key=f'sent_{i}')
                 check_button = st.button(f'Проверить {i+1}')
