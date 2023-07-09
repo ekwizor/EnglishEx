@@ -157,7 +157,7 @@ def main(text, num):
             sentence = row['sentences']
             odj = row['word']
             task = row['task']
-            option = row['options']
+            option = row['options'] + row['answer']
             answ = row['answer']
             
             if task == 'select_word':
