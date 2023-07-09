@@ -112,6 +112,7 @@ def gen_ex(text, num):
                 x = np.random.choice(d)
                 t = [str(x), x._.inflect('VBP'), x._.inflect('VBG'), x._.inflect('VBD')]
                 s = []
+                s.append(row['answ'])
                 if t[0] in (row['sentences'].split(' ')):
                     sent_1 = row['sentences'].replace(t[0], t[1])
                     s.append(sent_1)
@@ -119,7 +120,7 @@ def gen_ex(text, num):
                     s.append(sent_2)
                     sent_3 = row['sentences'].replace(t[0], t[3])
                     s.append(sent_3)
-                return row['sentences'], s
+                return row['sentences'], list(set(s))
             except:
                 pass
 
@@ -198,7 +199,7 @@ def main(text, num):
                 for j, opt in enumerate(option):
                     st.write(f'{j + 1}. {opt}')
     
-                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', list(set([answ + option])), key=f'sentence_{i+1}')
+                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'sentence_{i+1}')
                 check_button = st.button(f'Проверить {i+1} упражнение')
     
                 if check_button:
