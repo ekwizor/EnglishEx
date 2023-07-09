@@ -164,6 +164,14 @@ def main(text, num):
             
             if task == 'select_word':
                 st.write(sentence)
+                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'word_{i}')
+                check_button = st.button(f'Проверить {i+1}')
+    
+                if check_button:
+                    if user_answer.lower() == answ.lower():
+                        st.success('Правильный ответ!')
+                    else:
+                        st.error('Неправильный ответ!')
             elif task == 'missing_word':
                 words = sentence.split()
                 if answ in words:
