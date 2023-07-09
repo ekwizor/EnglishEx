@@ -145,10 +145,9 @@ def main(text, num):
         st.session_state.df = pd.DataFrame()
 
     if st.button("Сгенерировать"):
-        st.session_state.df = gen_ex(text, num)
-    
-    df = st.session_state.df
-    df = df.reset_index()
+        df = gen_ex(text, num)
+        st.session_state.df = df
+        df = df.reset_index()
 
     if not df.empty:  # Проверка наличия DataFrame перед использованием
         for i, row in df.iterrows():
