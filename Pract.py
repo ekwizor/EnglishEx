@@ -176,8 +176,8 @@ def main(text, num):
                 words = sentence.split()
                 if answ in words:
                     ind = words.index(answ)
-                    words[ind][1:-1] = '_' * len(words[ind])
-                    missing_word_sentence = ' '.join(words)
+                    words[ind] = '_' * len(words[ind])
+                    missing_word_sentence = ' '.join(words[1:-1])
                     st.write(missing_word_sentence)
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
