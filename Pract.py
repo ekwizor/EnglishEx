@@ -110,7 +110,7 @@ def gen_ex(text, num):
         if row['task'] == 'select_sent':
             try:
                 d = [token for token in nlp(row['sentences']) if token.pos_ in ['VERB']][:2]
-                x = np.random.choice(d])
+                x = np.random.choice(d)
                 t = [str(x), x._.inflect('VBP'), x._.inflect('VBG'), x._.inflect('VBD')]
                 s = []
                 if t[0] in row['sentences']:
