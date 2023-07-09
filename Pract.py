@@ -199,7 +199,7 @@ def main(text, num):
                 for j, opt in enumerate(option):
                     st.write(f'{j + 1}. {opt}')
     
-                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', ['', *option], key=f'select_{i}')
+                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'select_{i}')
                 check_button = st.button(f'Проверить {i+1} упражнение')
     
                 if check_button:
