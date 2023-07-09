@@ -44,7 +44,7 @@ def gen_ex(text, num):
         z = []
         if (row['task'] == 'select_word' or row['task'] =='missing_word'):
             for token in nlp(row['sentences']):
-                if token.pos_ in ['VERB', 'ADJ'] and len(token) > 2:
+                if token.pos_ in ['VERB', 'ADJ']:
                     z.append(str(token).lower())
             try:
                 return np.random.choice(z)
@@ -79,15 +79,16 @@ def gen_ex(text, num):
     def chunk(row):
         try:
             p = []
-            a = [] + ['object of preposition', 'direct object']
+            a = set() 
+            a.update(['object of preposition', 'direct object'])
             if row['task'] == 'phrases':
                 for chunk in nlp(row['sentences']).noun_chunks:
                     if len(chunk.text) >=7:
                         p.append(chunk.text)
-                        a.append(spacy.explain(chunk.root.dep_))
-                v = dict(zip(p,a))
+                        a.add(spacy.explain(chunk.root.dep_))
+                v = dict(zip(p,list(a)))
                 q = np.random.choice(list(p))
-            return q, list(set(a)), spacy.explain(chunk.root.dep_)
+            return q, list(a), spacy.explain(chunk.root.dep_)
         except:
             pass
 
@@ -195,7 +196,7 @@ def main(text, num):
             elif task == 'select_sent':
                 st.write(sentence)
     
-                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', ['', *option], key=f'sent_{i}')
+                user_answer = st.selectbox(f'Выберите правильное предложение {i+1}:', [*option], key=f'sent_{i}')
                 check_button = st.button(f'Проверить {i+1}')
     
                 if check_button:
