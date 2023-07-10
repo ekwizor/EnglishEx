@@ -154,7 +154,7 @@ def main(text, num):
 
     def remove_punctuation(input_string):
         # Создаем таблицу перевода для удаления знаков препинания
-        translator = str.maketrans('', '', string.punctuation.replace('.', '')
+        translator = str.maketrans('', '', string.punctuation.replace('.', ''))
         
         # Применяем таблицу перевода к строке
         no_punct = input_string.translate(translator)
