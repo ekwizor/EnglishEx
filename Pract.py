@@ -219,7 +219,7 @@ def main(text, num, nlp):
                     #words[ind] = '_' * len(words[ind])
                     #missing_word_sentence = ' '.join(words)
                     #st.write(missing_word_sentence)
-                st.markdown(highlighted_sentence)
+                st.markdown(highlighted_sentence, unsafe_allow_html=True)
                 
                 st.write(sentence)
                 st.write('Чем является выделенный фрагмент?')
