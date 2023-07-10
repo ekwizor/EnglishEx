@@ -165,7 +165,6 @@ def main(text, num, nlp):
     
 
     if not df.empty:
-        st.dataframe(df)
         for i, row in df.iterrows():
             st.subheader(f'{i+1} упражнение')
 
