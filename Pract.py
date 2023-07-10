@@ -171,7 +171,7 @@ def main(text, num, nlp):
             sentence = row['sentences']
             obj = row['word']
             task = row['task']
-            option = row['options']
+            option = shuffle(row['options'])
             answ = row['answer']
             #option.extend(answ)
             
@@ -226,7 +226,7 @@ def main(text, num, nlp):
                         st.error('Неправильный ответ!')
             elif task == 'select_sent':
                 
-                rad = st.radio(f'Выберите правильное предложение:', ['', shuffle([*option]), key=f'radio_{i}')
+                rad = st.radio(f'Выберите правильное предложение:', ['', [*option], key=f'radio_{i}')
                 
                 if rad == '':
                     pass
