@@ -164,6 +164,7 @@ def main(text, num, nlp):
 
     if not df.empty:
         for i, row in df.iterrows():
+            st.write('-------')
             st.subheader(f'{i+1} упражнение')
 
             sentence = row['sentences']
@@ -227,7 +228,7 @@ def main(text, num, nlp):
                     st.success('Правильный ответ!')
                 else:
                     st.error('Неправильный ответ!')
-            st.write('-------')
+            
     
 
             
