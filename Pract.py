@@ -47,7 +47,7 @@ def gen_ex(text, num, nlp):
         if (row['task'] == 'select_word' or row['task'] =='missing_word'):
             for token in nlp(row['sentences']):
                 if token.pos_ in ['VERB', 'ADJ']:
-                    z.append(str(token).lower())
+                    z.append(str(token))
             try:
                 return np.random.choice(z)
             except:
