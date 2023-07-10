@@ -224,7 +224,7 @@ def main(text, num, nlp):
                     st.error('Неправильный ответ!')
             elif task == 'select_sent':
                 st.write('<b>Выберите правильное предложение:<b>', unsafe_allow_html=True)
-                rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}', label_visibility="visible")
+                rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}', label_visibility="collapsed")
                 if rad == '':
                     pass
                 elif rad == answ:
