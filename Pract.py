@@ -225,7 +225,8 @@ def main(text, num, nlp):
                         st.success('Правильный ответ!')
                     else:
                         st.error('Неправильный ответ!')
-            #elif task == 'select_sent':
+            elif task == 'select_sent':
+                pass
                
                 #rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}')
                 
