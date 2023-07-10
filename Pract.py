@@ -184,7 +184,7 @@ def main(text, num, nlp):
                     words[ind] = '_' * len(words[ind])
                     missing_word_sentence = ' '.join(words)
                     st.write(missing_word_sentence)
-                user_answer = st.selectbox(f'Выберите правильное слово:', [*option], key=f'word_{i}')
+                user_answer = st.selectbox(f'Выберите правильное слово:', ['', *option], key=f'word_{i}')
                 check_button = st.button(f'Проверить', key=f'bword{i}')
     
                 if check_button:
@@ -217,7 +217,7 @@ def main(text, num, nlp):
                 
                 st.write('<b>Чем является выделенный фрагмент ?<b>', unsafe_allow_html=True)
                 st.write(answ)
-                user_answer = st.selectbox(f'Выберите правильный ответ:', [*option] , key=f'phrase_{i}')
+                user_answer = st.selectbox(f'Выберите правильный ответ:', ['', *option] , key=f'phrase_{i}')
                 check_button = st.button(f'Проверить', key=f'bphrase{i}')
     
                 if check_button:
