@@ -14,7 +14,7 @@ import spacy
 import contractions
 import streamlit as st
 import string
-from termcolor import colored
+
 
 def gen_ex(text, num, nlp):
 
