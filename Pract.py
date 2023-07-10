@@ -13,6 +13,7 @@ import pyinflect
 import spacy
 import contractions
 import streamlit as st
+import srting
 
 def gen_ex(text, num):
 
@@ -150,6 +151,17 @@ def main(text, num):
     df = st.session_state.df
     df = df.reset_index()
 
+
+    def remove_punctuation(input_string):
+        # Создаем таблицу перевода для удаления знаков препинания
+        translator = str.maketrans('', '', string.punctuation)
+        
+        # Применяем таблицу перевода к строке
+        no_punct = input_string.translate(translator)
+        
+        return no_punct
+    
+
     if not df.empty:
         st.dataframe(df)
         for i, row in df.iterrows():
@@ -164,7 +176,7 @@ def main(text, num):
             
             if task == 'select_word':
                 #st.write(sentence)
-                words = sentence.split()
+                words = remove_punctuation(sentence).split()
                 if answ in words:
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
