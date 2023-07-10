@@ -38,7 +38,7 @@ def gen_ex(text, num):
     df.loc[:, 'task'] = df.apply(lambda x: np.nan if len(x['sentences'].split()) <= 7 else np.random.choice(
         ['select_word', 'missing_word', 'phrases', 'select_sent']), axis=1)
 
-    nlp = en_core_web_sm.load()
+    #nlp = en_core_web_sm.load()
     my_bar.progress(40, text='Загрузка модели')
     
     def obj(row):
@@ -140,16 +140,13 @@ def gen_ex(text, num):
     st.write('Генерация завершена')
     return df
 
-def main(text, num):
-
-
-    nlp = en_core_web_sm.load()
+def main(text, num, nlp):
     
     if 'df' not in st.session_state:
         st.session_state.df = pd.DataFrame()
 
     if st.button("Сгенерировать"):
-        st.session_state.df = gen_ex(text, num)
+        st.session_state.df = gen_ex(text, num, nlp)
     
     df = st.session_state.df
     df = df.reset_index()
@@ -241,8 +238,8 @@ def main(text, num):
 
 
 if __name__ == '__main__':
-    
+    nlp = en_core_web_sm.load()
     st.title("Генератор упражнений по английскому")
     text = st.text_area("Введите текст:", key="text_area")
     num = st.number_input("Введите количество упражнений:", min_value=1, step=1, key='num')
-    main(text, num)
+    main(text, num, nlp)
