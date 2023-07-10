@@ -146,8 +146,9 @@ def main(text, num, nlp):
     
     if 'df' not in st.session_state:
         st.session_state.df = pd.DataFrame()
-        
-    st.session_state.df = gen_ex(text, num, nlp)
+
+    if st.button("Сгенерировать"):
+        st.session_state.df = gen_ex(text, num, nlp)
     
     df = st.session_state.df
     df = df.reset_index()
@@ -244,5 +245,4 @@ if __name__ == '__main__':
     st.title("Генератор упражнений по английскому")
     text = st.text_area("Введите текст:", key="text_area")
     num = st.number_input("Введите количество упражнений:", min_value=1, step=1, key='num')
-    if st.button("Сгенерировать"):
-        main(text, num, nlp)
+    main(text, num, nlp)
