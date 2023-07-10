@@ -142,6 +142,9 @@ def gen_ex(text, num):
 
 def main(text, num):
 
+
+    nlp = en_core_web_sm.load()
+    
     if 'df' not in st.session_state:
         st.session_state.df = pd.DataFrame()
 
