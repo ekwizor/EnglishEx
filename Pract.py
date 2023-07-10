@@ -191,7 +191,7 @@ def main(text, num):
                     else:
                         st.error('Неправильный ответ!')
             elif task == 'missing_word':
-                words = sentence.split()
+                words = remove_punctuation(sentence).split()
                 if answ in words:
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
@@ -211,6 +211,8 @@ def main(text, num):
                         st.write(sentence)
             elif task == 'phrases':
                 st.write(sentence)
+
+                st.write(obj)
     
                 st.write(answ)
                 user_answer = st.selectbox(f'Выберите правильный ответ:', [*option] , key=f'phrase_{i}')
