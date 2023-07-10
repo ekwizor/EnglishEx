@@ -154,7 +154,7 @@ def main(text, num):
 
     def remove_punctuation(input_string):
         # Создаем таблицу перевода для удаления знаков препинания
-        translator = str.maketrans('', '', string.punctuation)
+        translator = str.maketrans('', '', string.punctuation.replace('.', '')
         
         # Применяем таблицу перевода к строке
         no_punct = input_string.translate(translator)
@@ -181,7 +181,7 @@ def main(text, num):
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
                     missing_word_sentence = ' '.join(words)
-                    st.write(missing_word_sentence)
+                    st.write(missing_word_sentence + '.')
                 user_answer = st.selectbox(f'Выберите правильное слово:', [*option], key=f'word_{i}')
                 check_button = st.button(f'Проверить', key=f'bword{i}')
     
