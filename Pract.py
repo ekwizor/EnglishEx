@@ -226,11 +226,11 @@ def main(text, num, nlp):
                         st.error('Неправильный ответ!')
             elif task == 'select_sent':
                 
-                genre = st.radio(f'Выберите правильное предложение:', ['', *option], key=f'radio_{i}')
+                rad = st.radio(f'Выберите правильное предложение:', ['', shuffle([*option]), key=f'radio_{i}')
                 
-                if genre == '':
+                if rad == '':
                     pass
-                elif genre == answ:
+                elif rad == answ:
                     st.success('Правильный ответ!')
                 else:
                     st.error('Неправильный ответ!')
