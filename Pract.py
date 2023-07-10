@@ -200,14 +200,13 @@ def main(text, num, nlp):
                     st.write(f'Last letter: {answ[-1]}')
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
-                    check_button = st.button(f'Проверить')
-    
-                    if check_button:
-                        if user_answer.lower() == answ.lower():
-                            st.success('Верно!', icon="✅")
-                        else:
-                            st.error('Ошибка', icon="🚨")
-                            st.write(sentence)
+                    check_button = st.button(f'Проверить', key=f'bmword{i}')
+                if check_button:
+                    if user_answer.lower() == answ.lower():
+                        st.success('Верно!', icon="✅")
+                    else:
+                        st.error('Ошибка', icon="🚨")
+                        st.write(sentence)
             elif task == 'phrases':
                 highlighted_sentence = sentence.replace(obj, f'<span style="color:red">{obj}</span>')
                 st.markdown(highlighted_sentence, unsafe_allow_html=True)
