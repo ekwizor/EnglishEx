@@ -176,7 +176,6 @@ def main(text, num, nlp):
             #option.extend(answ)
             
             if task == 'select_word':
-                #st.write(sentence)
                 words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 if answ in words:
                     ind = words.index(answ)
@@ -201,7 +200,7 @@ def main(text, num, nlp):
                     st.write(f'Last letter: {answ[-1]}')
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
-                    check_button = st.button(f'Проверить', key=f'bmword{i}')
+                    check_button = st.button(f'Проверить')
     
                     if check_button:
                         if user_answer.lower() == answ.lower():
