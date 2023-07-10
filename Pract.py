@@ -227,6 +227,7 @@ def main(text, num, nlp):
                     st.success('Правильный ответ!')
                 else:
                     st.error('Неправильный ответ!')
+            st.write('-------')
     
 
             
