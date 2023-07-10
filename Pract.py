@@ -227,7 +227,7 @@ def main(text, num, nlp):
             elif task == 'select_sent':
                 
                 genre = st.radio(
-                    (option), key=f'radio_{i}')
+                    list(option), key=f'radio_{i}')
                 
                 if genre == answ:
                     st.write('You selected comedy.')
