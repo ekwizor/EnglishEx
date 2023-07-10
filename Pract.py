@@ -214,7 +214,7 @@ def main(text, num, nlp):
                 highlighted_sentence = sentence.replace(obj, f'<span style="color:red">{obj}</span>')
                 st.markdown(highlighted_sentence, unsafe_allow_html=True)
                 
-                st.write('<b>Чем является выделенный фрагмент ?<b>')
+                st.write('<b>Чем является выделенный фрагмент ?<b>', unsafe_allow_html=True)
                 st.write(answ)
                 user_answer = st.selectbox(f'Выберите правильный ответ:', [*option] , key=f'phrase_{i}')
                 check_button = st.button(f'Проверить', key=f'bphrase{i}')
