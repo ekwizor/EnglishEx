@@ -14,7 +14,6 @@ import spacy
 import contractions
 import streamlit as st
 import string
-import re
 
 def gen_ex(text, num, nlp):
 
