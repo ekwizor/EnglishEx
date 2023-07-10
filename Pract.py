@@ -212,6 +212,8 @@ def main(text, num, nlp):
             elif task == 'phrases':
 
                 highlighted_sentence = sentence.replace(answ, f'<span style="color:red">{answ}</span>')
+
+                st.markdown(f'<p style="color:blue">{highlighted_sentence}</p>', unsafe_allow_html=True)
                 
                 #words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 #if answ in words:
@@ -219,7 +221,6 @@ def main(text, num, nlp):
                     #words[ind] = '_' * len(words[ind])
                     #missing_word_sentence = ' '.join(words)
                     #st.write(missing_word_sentence)
-                st.markdown(highlighted_sentence, unsafe_allow_html=True)
                 
                 st.write(sentence)
                 st.write('Чем является выделенный фрагмент?')
