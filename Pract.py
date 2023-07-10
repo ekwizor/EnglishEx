@@ -168,7 +168,7 @@ def main(text, num):
             st.subheader(f'{i+1} упражнение')
 
             sentence = row['sentences']
-            odj = row['word']
+            obj = row['word']
             task = row['task']
             option = row['options']
             answ = row['answer']
