@@ -211,7 +211,7 @@ def main(text, num, nlp):
                         st.write(sentence)
             elif task == 'phrases':
 
-                highlighted_sentence = sentence.replace(answ, f'<span style="color:{red}">{answ}</span>')
+                highlighted_sentence = sentence.replace(answ, f'<span style="color:{'red'}">{answ}</span>')
                 
                 #words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 #if answ in words:
