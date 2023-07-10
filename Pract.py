@@ -226,7 +226,7 @@ def main(text, num, nlp):
                         st.error('Неправильный ответ!')
             elif task == 'select_sent':
                 
-                genre = st.radio(f'Выберите правильное предложение:', ['', *option], key=f'radio_{i}')
+                genre = st.radio(f'Выберите правильное предложение:', ['', *option], key=f'radio_{i}', index=None)
                 
                 if genre == '':
                     pass
@@ -235,14 +235,7 @@ def main(text, num, nlp):
                 else:
                     st.error('Неправильный ответ!')
     
-                #user_answer = st.selectbox(f'Выберите правильное предложение:', [*option], key=f'sent_{i}')
-                #check_button = st.button(f'Проверить', key=f'bsent{i}')
-    
-                #if check_button:
-                    #if user_answer.lower() == answ.lower():
-                        #st.success('Правильный ответ!')
-                    #else:
-                        #st.error('Неправильный ответ!')
+
             
 
 
