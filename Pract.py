@@ -235,6 +235,6 @@ def main(text, num, nlp):
 if __name__ == '__main__':
     nlp = en_core_web_sm.load()
     st.title("Генератор упражнений по английскому")
-    text = st.text_area("Введите текст:", key="text_area")
+    text = st.text_area("Введите текст:", key="text_area", height=300)
     num = st.number_input("Введите количество упражнений:", min_value=1, step=1, key='num')
     main(text, num, nlp)
