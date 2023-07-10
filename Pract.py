@@ -226,7 +226,7 @@ def main(text, num, nlp):
                         st.error('Неправильный ответ!')
             elif task == 'select_sent':
                 
-                genre = st.radio(f'Выберите правильное предложение:', ['', *option], key=f'radio_{i}', index=None)
+                genre = st.radio(f'Выберите правильное предложение:', ['', *option], key=f'radio_{i}')
                 
                 if genre == '':
                     pass
