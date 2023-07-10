@@ -196,7 +196,7 @@ def main(text, num):
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
                     missing_word_sentence = ' '.join(words)
-                    st.write(missing_word_sentence)
+                    st.write(missing_word_sentence + '.')
                     st.write(f'First letter: {answ[0]}')
                     st.write(f'Last letter: {answ[-1]}')
     
@@ -213,7 +213,7 @@ def main(text, num):
                 st.write(sentence)
                 st.write('Чем является выделенный фрагмент?')
                 st.write(obj)
-    
+                st.markdown("This text is :red[colored red], and this is **:blue[colored]** and bold.")
                 st.write(answ)
                 user_answer = st.selectbox(f'Выберите правильный ответ:', [*option] , key=f'phrase_{i}')
                 check_button = st.button(f'Проверить', key=f'bphrase{i}')
