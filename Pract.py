@@ -163,7 +163,13 @@ def main(text, num):
             #option.extend(answ)
             
             if task == 'select_word':
-                st.write(sentence)
+                #st.write(sentence)
+                words = sentence.split()
+                if answ in words:
+                    ind = words.index(answ)
+                    words[ind] = '_' * len(words[ind])
+                    missing_word_sentence = ' '.join(words)
+                    st.write(missing_word_sentence)
                 user_answer = st.selectbox(f'Выберите правильное слово:', [*option], key=f'word_{i}')
                 check_button = st.button(f'Проверить', key=f'bword{i}')
     
