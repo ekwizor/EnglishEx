@@ -211,7 +211,6 @@ def main(text, num, nlp):
                 st.markdown(highlighted_sentence, unsafe_allow_html=True)
                 
                 st.write('<b>Чем является выделенный фрагмент ?<b>', unsafe_allow_html=True)
-                st.write(answ)
                 user_answer = st.selectbox(f'Выберите правильный ответ:', ['', *option] , key=f'phrase_{i}')
                 if user_answer == '':
                     pass
