@@ -14,7 +14,6 @@ import spacy
 import contractions
 import streamlit as st
 import string
-import random
 
 
 def gen_ex(text, num, nlp):
@@ -172,7 +171,7 @@ def main(text, num, nlp):
             sentence = row['sentences']
             obj = row['word']
             task = row['task']
-            option = random.shuffle(row['options'])
+            option = row['options']
             answ = row['answer']
             #option.extend(answ)
             
