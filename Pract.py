@@ -199,7 +199,7 @@ def main(text, num, nlp):
                     st.write(f'Last letter: {answ[-1]}')
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
-                    check_button = st.button(f'Проверить', key=f'bmword{i}')
+                    check_button = st.button(f'Проверить', key=f'bmword{i}', index==1000)
                 if check_button:
                     if user_answer.lower() == answ.lower():
                         st.success('Верно!', icon="✅")
