@@ -144,8 +144,8 @@ def gen_ex(text, num, nlp):
 
 def main(text, num, nlp):
     
-    #if 'df' not in st.session_state:
-        #st.session_state.df = pd.DataFrame()
+    if 'df' not in st.session_state:
+        st.session_state.df = pd.DataFrame()
 
     if st.button("Сгенерировать"):
         st.session_state.df = gen_ex(text, num, nlp)
@@ -157,10 +157,8 @@ def main(text, num, nlp):
     def remove_punctuation(input_string):
         # Создаем таблицу перевода для удаления знаков препинания
         translator = str.maketrans('', '', string.punctuation)
-        
         # Применяем таблицу перевода к строке
         no_punct = input_string.translate(translator)
-        
         return no_punct
     
 
