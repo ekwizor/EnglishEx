@@ -15,7 +15,7 @@ import contractions
 import streamlit as st
 import string
 
-def gen_ex(text, num):
+def gen_ex(text, num, nlp):
 
     my_bar = st.progress(0, text='Wait')
     splitter = SentenceSplitter(language='en')
