@@ -14,6 +14,7 @@ import spacy
 import contractions
 import streamlit as st
 import string
+import re
 
 def gen_ex(text, num, nlp):
 
@@ -211,7 +212,7 @@ def main(text, num, nlp):
                         st.write(sentence)
             elif task == 'phrases':
 
-                highlighted_sentence = sentence.replace(answ, f"<span style='color:{'red'}'>{answ}</span>")
+                highlighted_sentence = re.sub(rf'\b{answ}\b', f"<span style='color:{'red'}'>{answ}</span>", sentence)
                 
                 #words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 #if answ in words:
