@@ -181,7 +181,7 @@ def main(text, num, nlp):
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
                     missing_word_sentence = ' '.join(words)
-                    st.write(missing_word_sentence + '.')
+                    st.write(missing_word_sentence)
                 user_answer = st.selectbox(f'Выберите правильное слово:', [*option], key=f'word_{i}')
                 check_button = st.button(f'Проверить', key=f'bword{i}')
     
@@ -196,7 +196,7 @@ def main(text, num, nlp):
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
                     missing_word_sentence = ' '.join(words)
-                    st.write(missing_word_sentence + '.')
+                    st.write(missing_word_sentence)
                     st.write(f'First letter: {answ[0]}')
                     st.write(f'Last letter: {answ[-1]}')
     
