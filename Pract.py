@@ -225,22 +225,22 @@ def main(text, num, nlp):
                     else:
                         st.error('Неправильный ответ!')
             elif task == 'select_sent':
-                #st.write(sentence)
-                words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
-                if answ in words:
-                    ind = words.index(answ)
-                    words[ind] = '_' * len(words[ind])
-                    missing_word_sentence = ' '.join(words)
-                    st.write(missing_word_sentence)
+                genre = st.radio(
+                    option, key=f'radio_{i}')
+                
+                if genre == anws:
+                    st.write('You selected comedy.')
+                else:
+                    st.write("You didn\'t select comedy.")
     
-                user_answer = st.selectbox(f'Выберите правильное предложение:', [*option], key=f'sent_{i}')
-                check_button = st.button(f'Проверить', key=f'bsent{i}')
+                #user_answer = st.selectbox(f'Выберите правильное предложение:', [*option], key=f'sent_{i}')
+                #check_button = st.button(f'Проверить', key=f'bsent{i}')
     
-                if check_button:
-                    if user_answer.lower() == answ.lower():
-                        st.success('Правильный ответ!')
-                    else:
-                        st.error('Неправильный ответ!')
+                #if check_button:
+                    #if user_answer.lower() == answ.lower():
+                        #st.success('Правильный ответ!')
+                    #else:
+                        #st.error('Неправильный ответ!')
             
 
 
