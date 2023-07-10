@@ -114,15 +114,16 @@ def gen_ex(text, num, nlp):
                 d = [token for token in nlp(row['sentences']) if token.pos_ in ['VERB']][:2]
                 x = np.random.choice(d)
                 t = [str(x), x._.inflect('VBP'), x._.inflect('VBG'), x._.inflect('VBD')]
-                s = []
+                s = set()
+                s.add(row['sentences'])
                 if t[0] in row['sentences']:
                     sent_1 = row['sentences'].replace(t[0], t[1])
-                    s.append(sent_1)
+                    s.add(sent_1)
                     sent_2 = row['sentences'].replace(t[0], t[2])
-                    s.append(sent_2)
+                    s.add(sent_2)
                     sent_3 = row['sentences'].replace(t[0], t[3])
-                    s.append(sent_3)
-                return row['sentences'], s
+                    s.add(sent_3)
+                return row['sentences'], list(s)
             except:
                 pass
 
