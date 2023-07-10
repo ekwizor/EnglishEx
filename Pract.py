@@ -14,6 +14,7 @@ import spacy
 import contractions
 import streamlit as st
 import string
+from termcolor import colored
 
 def gen_ex(text, num, nlp):
 
@@ -214,6 +215,12 @@ def main(text, num, nlp):
                 highlighted_sentence = sentence.replace(answ, f'<span style="color:red">{answ}</span>')
 
                 st.markdown(f'<p style="color:blue">{highlighted_sentence}</p>', unsafe_allow_html=True)
+
+
+                words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
+                if answ in words:
+                    ind = words.index(answ)
+                    words[ind] = '_' * len(words[ind])
                 
                 #words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 #if answ in words:
