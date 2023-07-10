@@ -199,7 +199,7 @@ def main(text, num, nlp):
                     st.write(f'Last letter: {answ[-1]}')
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
-                    check_button = st.button(f'Проверить', key=f'bmword{i}', index=1000)
+                    check_button = st.button(f'Проверить', key=f'bmword{i}')
                 if check_button:
                     if user_answer.lower() == answ.lower():
                         st.success('Верно!', icon="✅")
@@ -220,7 +220,7 @@ def main(text, num, nlp):
                     st.error('Неправильный ответ!')
             elif task == 'select_sent':
                 st.write('<b>Выберите правильное предложение:<b>', unsafe_allow_html=True)
-                rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}', label_visibility="collapsed", index=1000)
+                rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}', label_visibility="collapsed", default=None)
                 if rad == '':
                     pass
                 elif rad == answ:
