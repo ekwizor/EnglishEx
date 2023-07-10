@@ -13,7 +13,7 @@ import pyinflect
 import spacy
 import contractions
 import streamlit as st
-#import srting
+import string
 
 def gen_ex(text, num):
 
