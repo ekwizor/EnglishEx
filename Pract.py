@@ -225,16 +225,16 @@ def main(text, num, nlp):
                         st.success('Правильный ответ!')
                     else:
                         st.error('Неправильный ответ!')
-            elif task == 'select_sent':
+            #elif task == 'select_sent':
                
-                rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}')
+                #rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}')
                 
-                if rad == '':
-                    pass
-                elif rad == answ:
-                    st.success('Правильный ответ!')
-                else:
-                    st.error('Неправильный ответ!')
+                #if rad == '':
+                    #pass
+                #elif rad == answ:
+                    #st.success('Правильный ответ!')
+               #else:
+                    #st.error('Неправильный ответ!')
     
 
             
