@@ -184,13 +184,12 @@ def main(text, num, nlp):
                     missing_word_sentence = ' '.join(words)
                     st.write(missing_word_sentence)
                 user_answer = st.selectbox(f'Выберите правильное слово:', ['', *option], key=f'word_{i}')
-                check_button = st.button(f'Проверить', key=f'bword{i}')
-    
-                if check_button:
-                    if user_answer.lower() == answ.lower():
-                        st.success('Правильный ответ!')
-                    else:
-                        st.error('Неправильный ответ!')
+                if user_answer == '':
+                    pass
+                elif user_answer == answ:
+                    st.success('Правильный ответ!')
+                else:
+                    st.error('Неправильный ответ!')
             elif task == 'missing_word':
                 words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 if answ in words:
@@ -202,14 +201,13 @@ def main(text, num, nlp):
                     st.write(f'Last letter: {answ[-1]}')
     
                     user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
-                    check_button = st.button(f'Проверить', key=f'bmword{i}')
-    
-                    if check_button:
-                        if user_answer.lower() == answ.lower():
-                            st.success('Верно!', icon="✅")
-                        else:
-                            st.error('Ошибка', icon="🚨")
-                        st.write(sentence)
+                    if user_answer == '':
+                        pass
+                    elif user_answer == answ:
+                        st.success('Правильный ответ!')
+                    else:
+                        st.error('Неправильный ответ!')
+                            st.write(sentence)
             elif task == 'phrases':
                 highlighted_sentence = sentence.replace(obj, f'<span style="color:red">{obj}</span>')
                 st.markdown(highlighted_sentence, unsafe_allow_html=True)
@@ -217,13 +215,12 @@ def main(text, num, nlp):
                 st.write('<b>Чем является выделенный фрагмент ?<b>', unsafe_allow_html=True)
                 st.write(answ)
                 user_answer = st.selectbox(f'Выберите правильный ответ:', ['', *option] , key=f'phrase_{i}')
-                check_button = st.button(f'Проверить', key=f'bphrase{i}')
-    
-                if check_button:
-                    if user_answer.lower() == answ.lower():
-                        st.success('Правильный ответ!')
-                    else:
-                        st.error('Неправильный ответ!')
+                if user_answer == '':
+                    pass
+                elif user_answer == answ:
+                    st.success('Правильный ответ!')
+                else:
+                    st.error('Неправильный ответ!')
             elif task == 'select_sent':
                 
                 rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}')
