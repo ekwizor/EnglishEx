@@ -211,7 +211,7 @@ def main(text, num):
                         st.write(sentence)
             elif task == 'phrases':
                 st.write(sentence)
-
+                st.write('Чем является выделенный фрагмент?')
                 st.write(obj)
     
                 st.write(answ)
