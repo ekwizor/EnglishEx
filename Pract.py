@@ -228,7 +228,7 @@ def main(text, num, nlp):
                 genre = st.radio(
                     option, key=f'radio_{i}')
                 
-                if genre == anws:
+                if genre == answ:
                     st.write('You selected comedy.')
                 else:
                     st.write("You didn\'t select comedy.")
