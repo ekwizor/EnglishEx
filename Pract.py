@@ -212,15 +212,8 @@ def main(text, num, nlp):
                         st.write(sentence)
             elif task == 'phrases':
 
-                highlighted_sentence = sentence.replace(answ, f'<span style="color:red">{answ}</span>')
-
-                st.markdown(f'<p style="color:blue">{highlighted_sentence}</p>', unsafe_allow_html=True)
-
-
-                words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
-                if answ in words:
-                    ind = words.index(answ)
-                    words[ind] = '_' * len(words[ind])
+                highlighted_sentence = sentence.replace(answ, "\033[91m{}\033[0m".format(answ))
+                st.write(highlighted_sentence)
                 
                 #words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 #if answ in words:
