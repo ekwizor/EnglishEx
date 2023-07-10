@@ -176,7 +176,7 @@ def main(text, num):
             
             if task == 'select_word':
                 #st.write(sentence)
-                words = ' '.join([token.text_with_ws for token in nlp(r)]).split()
+                words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 if answ in words:
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
@@ -191,7 +191,7 @@ def main(text, num):
                     else:
                         st.error('Неправильный ответ!')
             elif task == 'missing_word':
-                words = ' '.join([token.text_with_ws for token in nlp(r)]).split()
+                words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
                 if answ in words:
                     ind = words.index(answ)
                     words[ind] = '_' * len(words[ind])
