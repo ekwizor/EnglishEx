@@ -31,7 +31,7 @@ def process_df(df, nlp):
   df.loc[df['task'].isin(['select_word', 'missing_word']), 'answer'] = df['word']
    # Processing 'select_sent' tasks
   df.loc[df['task'] == 'select_sent', ['word', 'options', 'answer']] = df.apply(lambda row: process_select_sent(row, nlp), axis=1)
-   df = df.dropna()
+  df = df.dropna()
   return df
 def process_word(row, nlp):
   z = (str(token) for token in nlp(row['sentences']) if token.pos_ in ['VERB', 'ADJ'])  # Use a generator instead of a list
