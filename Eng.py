@@ -71,13 +71,14 @@ def process_select_sent(row, nlp):
   except ValueError:  # Specify the type of exception
       return None, None, None
 def main(text, num, nlp):
+  
   if 'df' not in st.session_state:
       st.session_state.df = pd.DataFrame()
-   if st.button("Сгенерировать"):
+  if st.button("Сгенерировать"):
       sentences = split_sentences(text)
       df = generate_df(sentences)
       st.session_state.df = process_df(df, nlp)
-   df = st.session_state.df
+  df = st.session_state.df
   df = df.reset_index()
    # The rest of your main function goes here...
 if __name__ == '__main__':
