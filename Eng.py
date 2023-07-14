@@ -80,8 +80,82 @@ def main(text, num, nlp):
       st.session_state.df = process_df(df, nlp)
   df = st.session_state.df
   df = df.reset_index()
-   # The rest of your main function goes here...
+  def remove_punctuation(input_string):
+        # Создаем таблицу перевода для удаления знаков препинания
+        translator = str.maketrans('', '', string.punctuation)
+        # Применяем таблицу перевода к строке
+        no_punct = input_string.translate(translator)
+        return no_punct
+    
+
+  if not df.empty:
+      for i, row in df.iterrows():
+          st.write('-------')
+          st.subheader(f'{i+1} упражнение')
+
+          sentence = row['sentences']
+          obj = row['word']
+          task = row['task']
+          option = row['options']
+          answ = row['answer']
+          #option.extend(answ)
+          
+          if task == 'select_word':
+              words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
+              if answ in words:
+                  ind = words.index(answ)
+                  words[ind] = '_' * len(words[ind])
+                  missing_word_sentence = ' '.join(words)
+                  st.write(missing_word_sentence)
+              user_answer = st.selectbox(f'Выберите правильное слово:', ['', *option], key=f'word_{i}')
+              if user_answer == '':
+                  pass
+              elif user_answer == answ:
+                  st.success('Правильный ответ!')
+              else:
+                  st.error('Неправильный ответ!')
+          elif task == 'missing_word':
+              words = ' '.join([token.text_with_ws for token in nlp(sentence)]).split()
+              if answ in words:
+                  ind = words.index(answ)
+                  words[ind] = '_' * len(words[ind])
+                  missing_word_sentence = ' '.join(words)
+                  st.write(missing_word_sentence)
+                  st.write(f'First letter: {answ[0]}')
+                  st.write(f'Last letter: {answ[-1]}')
+  
+                  user_answer = st.text_input('Введите ваш ответ:', key=f'text_inp_{i}')
+                  check_button = st.button(f'Проверить', key=f'bmword{i}')
+              if check_button:
+                  if user_answer.lower() == answ.lower():
+                      st.success('Верно!', icon="✅")
+                  else:
+                      st.error('Ошибка', icon="🚨")
+                      st.write(sentence)
+          elif task == 'phrases':
+              highlighted_sentence = sentence.replace(obj, f'<span style="color:red">{obj}</span>')
+              st.markdown(highlighted_sentence, unsafe_allow_html=True)
+              
+              st.write('<b>Чем является выделенный фрагмент ?<b>', unsafe_allow_html=True)
+              user_answer = st.selectbox(f'Выберите правильный ответ:', ['', *option] , key=f'phrase_{i}')
+              if user_answer == '':
+                  pass
+              elif user_answer == answ:
+                  st.success('Правильный ответ!')
+              else:
+                  st.error('Неправильный ответ!')
+          elif task == 'select_sent':
+              st.write('<b>Выберите правильное предложение:<b>', unsafe_allow_html=True)
+              rad = st.radio('Выберите правильное предложение:',['', *option], key=f'radio_{i}', label_visibility="collapsed")
+              if rad == '':
+                  pass
+              elif rad == answ:
+                  st.success('Правильный ответ!')
+              else:
+                  st.error('Неправильный ответ!')
+  
 if __name__ == '__main__':
+  model_g = api.load('glove-wiki-gigaword-100')
   nlp = en_core_web_sm.load()
   st.title("Генератор упражнений по английскому")
   text = st.text_area("Введите текст:", key="text_area", height=300)
